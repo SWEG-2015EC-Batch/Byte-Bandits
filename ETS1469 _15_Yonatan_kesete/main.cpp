@@ -12,6 +12,7 @@ cout << "enter weight: ";
     double body_mass = pow(height, 2);
     double body_mass_index = weight / body_mass;
     cout << "your Body Mass index is: " << body_mass_index << endl;
+    
     cout << "enter capacity in gallons: ";
     double gallons;
     cin >> gallons;
@@ -20,6 +21,7 @@ cout << "enter weight: ";
     cin >> miles;
     double miles_without_refueling = miles * gallons;
     cout << "the automobile can be driven " << miles_without_refueling << " miles without refueling" << endl;
+    
     cout<<"enter a letter:";
     char input;
     cin>>input;
@@ -29,6 +31,7 @@ cout << "enter weight: ";
         cout<<upper<<endl;
     else if(isupper(input))
         cout<<lower<<endl;
+    
     cout << "enter the base: ";
     double x;
     cin >> x;
@@ -37,6 +40,7 @@ cout << "enter weight: ";
     cin >> y;
     double final_result = pow(x, y);
     cout << final_result << endl;
+    
     cout << "enter name :";
     string name;
     cin >> name;
@@ -58,6 +62,7 @@ cout << "enter weight: ";
     cout << "net_salary:$"<<net_salary<<endl;
     double bonus_payment=bonus_rate*hour;
     cout<<"bonus payment :$"<<bonus_payment<<endl;
+    
     cout<<"enter amount of data: ";
     double data;
     cin>>data;
