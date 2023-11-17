@@ -1,4 +1,4 @@
-1,person and output BMI 
+ANALYSIS 
 
 INPUT 
 
