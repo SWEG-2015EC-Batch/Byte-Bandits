@@ -3,6 +3,7 @@
 #include<cctype>
 using namespace std;
 int main() {
+    // a program to calculate body mass index
 cout << "enter weight: ";
     double weight;
     cin >> weight;
@@ -12,7 +13,7 @@ cout << "enter weight: ";
     double body_mass = pow(height, 2);
     double body_mass_index = weight / body_mass;
     cout << "your Body Mass index is: " << body_mass_index << endl;
-    
+   // a program that calculates mileage 
     cout << "enter capacity in gallons: ";
     double gallons;
     cin >> gallons;
@@ -21,7 +22,7 @@ cout << "enter weight: ";
     cin >> miles;
     double miles_without_refueling = miles * gallons;
     cout << "the automobile can be driven " << miles_without_refueling << " miles without refueling" << endl;
-    
+   // a program to change the case entered
     cout<<"enter a letter:";
     char input;
     cin>>input;
@@ -31,7 +32,7 @@ cout << "enter weight: ";
         cout<<upper<<endl;
     else if(isupper(input))
         cout<<lower<<endl;
-    
+    //a program that calculates x the power of y
     cout << "enter the base: ";
     double x;
     cin >> x;
@@ -40,7 +41,7 @@ cout << "enter weight: ";
     cin >> y;
     double final_result = pow(x, y);
     cout << final_result << endl;
-    
+    // a program that calculates net salary,gross salary and bonus payment
     cout << "enter name :";
     string name;
     cin >> name;
@@ -62,7 +63,7 @@ cout << "enter weight: ";
     cout << "net_salary:$"<<net_salary<<endl;
     double bonus_payment=bonus_rate*hour;
     cout<<"bonus payment :$"<<bonus_payment<<endl;
-    
+    // a program that calculates time of data transmission
     cout<<"enter amount of data: ";
     double data;
     cin>>data;
