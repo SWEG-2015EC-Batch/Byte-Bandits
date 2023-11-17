@@ -9,8 +9,10 @@ int main(){
 	std::cout << "Please enter weight and height separated by space." << std::endl;
 	std::cin >> weight >> height;
 
+	//validity check
 	if(height <= 0 || weight < 0 ){
-		std::cout << "ERROR. Height and Weight must be non-negative and height cannot be 0." << std::endl;
+		std::cout << "ERROR. Height and Weight must be non-negative and height cannot be 0." 
+			<< std::endl;
 		return 1;
 	}
 

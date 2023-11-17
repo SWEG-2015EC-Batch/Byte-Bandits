@@ -1,3 +1,5 @@
+// Reads in a character, and prints its it out with its character inverted
+// By: paulusel
 #include <iostream>
 #include <cctype>
 
@@ -7,7 +9,8 @@ int main(){
 
 	std::cout << "Enter a character and its case will be inverted." << std::endl;
 	std::cin >> letter;
-
+	
+	// not all characters are letters
 	if( !isalpha(letter) ){
 		std::cout << "That's not a letter!" << std::endl;
 

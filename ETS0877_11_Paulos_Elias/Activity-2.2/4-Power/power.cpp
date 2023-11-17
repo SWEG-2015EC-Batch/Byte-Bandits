@@ -1,3 +1,6 @@
+// Reads two numbers, spits out the value of the
+// the first raised to the second
+// By: paulusel
 #include <iostream>
 #include <cmath>
 
@@ -7,7 +10,8 @@ int main(){
 
 	std::cout << "Enter two numbers(base and exponent) separated by space." << std::endl;
 	std::cin >> base >> exp;
-
+	
+	// if base is less than 0, the value is undefined
 	if( base <= 0 ){
 		std::cout << "The base must be positive!" << std::endl;
 

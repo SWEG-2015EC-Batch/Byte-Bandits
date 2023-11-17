@@ -1,3 +1,6 @@
+// Program that calculates maximum distance an automobile can go without refueling
+// based on gas tank capacity and mileage
+// By: paulusel
 #include <iostream>
 
 int main(){
@@ -7,7 +10,8 @@ int main(){
 	// distance is max distance possible without refueling
 	float distance, capacity, mileage;
 
-	std::cout << "Please enter fuel tank capacity followed and mileage of the automobile." << std::endl;
+	std::cout << "Please enter fuel tank capacity followed and mileage of the automobile."
+		<< std::endl;
 	std::cin >> capacity >> mileage;
 
 	//sanity check
@@ -19,7 +23,8 @@ int main(){
 
 	distance = capacity * mileage;
 
-	std::cout << "Maximum distance possible without refueling is: " << distance << " miles" << std::endl;
+	std::cout << "Maximum distance possible without refueling is: " << distance
+		<< " miles" << std::endl;
 
 	return 0;
 }
