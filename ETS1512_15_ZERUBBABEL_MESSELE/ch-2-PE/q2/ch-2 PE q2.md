@@ -1,4 +1,4 @@
-Problem: Predicting mileage of an automobile by fuel tank capacity and fuel required by distance. Fuel capacity and mileage(miles per unit amount fule) are inputs. 
+ANALYSIS
 
 INPUT 
 
