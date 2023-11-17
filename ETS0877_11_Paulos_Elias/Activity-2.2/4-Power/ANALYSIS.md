@@ -13,7 +13,7 @@ PROCESS
 
 - Use power(double, double) from cmath library
 
-ALGORITHM
+ALGORITHM(PSEUDOCODE)
 
 1. start
 2. read two decimals,  one base and another exponent
@@ -21,6 +21,26 @@ ALGORITHM
 4. power = pow(base, exponenet)
 5. print power
 6. end
+
+ALGORITHM(FLOWCHART)
+
+```mermaid
+graph LR;
+id1([Start]);
+id2[/Read base, exponent/];
+id4{base < 0?};
+id3(power = pow %base, %exponent);
+id5[/Print power/];
+id7[/Print ERROR/];
+id6([End]);
+id1-->id2;
+id2-->id4;
+id4--yes-->id7;
+id4--no-->id3;
+id3-->id5;
+id5-->id6;
+id7-->id6;
+```
 
 PROGRAM DESIGN
 

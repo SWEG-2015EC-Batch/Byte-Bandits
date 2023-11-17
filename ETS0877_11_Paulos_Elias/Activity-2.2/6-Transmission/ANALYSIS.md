@@ -12,7 +12,7 @@ PROCESS
 
 - transmission time = file size / transmission rate
 
-ALGORITHM
+ALGORITHM(PSEUDOCODE)
 
 1. start
 2. read file size
@@ -20,6 +20,26 @@ ALGORITHM
 4. time = file size / 960
 5. print time
 6. end
+
+ALGORITHM(PSEUDOCODE)
+
+```mermaid
+graph LR;
+id1([Start]);
+id2[/Read file size/];
+id4{file size < 0?};
+id3(time = file size / 960);
+id5[/Print time/];
+id7[/Print ERROR/];
+id6([End]);
+id1-->id2;
+id2-->id4;
+id4--yes-->id7;
+id4--no-->id3;
+id3-->id5;
+id5-->id6;
+id7-->id6;
+```
 
 PROGRAM DESIGN
 

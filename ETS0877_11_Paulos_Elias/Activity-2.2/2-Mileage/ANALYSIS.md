@@ -13,7 +13,7 @@ PROCESS
 
 - distance = mileage(miles per gallon) * capacity(gallon)
 
-ALGORITHM
+ALGORITHM(PSEUDOCODE)
 
 1. start
 2. read fuel capcity and mileage
@@ -21,6 +21,26 @@ ALGORITHM
 4. distance = capacity * mileage
 5. print distance
 6. end
+
+ALGORITHM(FLOWCHART)
+
+```mermaid
+graph LR;
+id1([Start]);
+id2[/Read capacity, mileage/];
+id4{capacity < 0 or mileage < 0?};
+id3(distance= capacity * mileage);
+id5[/Print distance/];
+id7[/Print ERROR/];
+id6([End]);
+id1-->id2;
+id2-->id4;
+id4--yes-->id7;
+id4--no-->id3;
+id3-->id5;
+id5-->id6;
+id7-->id6;
+```
 
 PROGRAM DESIGN
 
