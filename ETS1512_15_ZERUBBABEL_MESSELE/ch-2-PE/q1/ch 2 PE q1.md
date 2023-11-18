@@ -13,7 +13,8 @@ PROCESS
 
 -BMI = weight/)height * height 
 
-FLOWCHART
+ALGORITHM
+ FLOWCHART
 
 ```mermaid
 graph LR;
@@ -32,8 +33,7 @@ id3-->id5;
 id5-->id6;
 id7-->id6;
 ```
-
-ALGORITHM 
+ PSEUDOCODE
 
 1. start
 2. read height and weight
