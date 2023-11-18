@@ -18,6 +18,20 @@
    7. Print maximum miles
    8. End
 
+Algorithm: Flowchart
+
+```mermaid
+graph LR;
+id1([Start]);
+id2[/Read capacity, efficiency/];
+id3(distance= capacity * efficiency);
+id4[/Print max miles/];
+id5([End]);
+id1-->id2;
+id2-->id3;
+id3-->id4;
+id4-->id5;
+```
 4. Program Design
    1. Declare variables for fuel tank capacity, fuel efficiency, maximum miles
    2. Print "Enter fuel tank capacity (gallons):"
