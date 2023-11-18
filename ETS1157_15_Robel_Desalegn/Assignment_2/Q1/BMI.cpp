@@ -1,10 +1,10 @@
-// This progrsm calculates BMI of person based on weight and height
+// This program calculates BMI of a person based on weight and height
 #include <iostream>
 using namespace std;
 
 int main()
 {
-  double height{}, weight{}, bmi{};
+  double height, weight, bmi;
   
   cout << "Enter your weight in kg: ";
   cin >> weight;
