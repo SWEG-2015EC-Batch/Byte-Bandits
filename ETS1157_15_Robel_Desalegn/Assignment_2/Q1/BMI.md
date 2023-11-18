@@ -7,7 +7,7 @@
 
 1. Problem Analysis
 - Input: height and weight
-- Process:  BMI = weight/(height\*height)
+- Process: BMI = weight/(height\*height)
 - Output: BMI
 
 1. Algorithm 
