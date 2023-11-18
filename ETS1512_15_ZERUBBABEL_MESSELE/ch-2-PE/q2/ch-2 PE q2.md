@@ -13,7 +13,10 @@ PROCESS
 
 - distance = mileage(miles per gallon) * capacity(gallon) 
 
-FLOWCHART
+
+ALGORITHM 
+
+ FLOWCHART
 
 ```mermaid
 graph LR;
@@ -33,8 +36,8 @@ id5-->id6;
 id7-->id6;
 ```
 
-ALGORITHM 
-
+ PSEUDOCODE
+ 
 1. start
 2. read fuel capcity and mileage
 3. if invalid input, print error and exit unsuccessfully. Negative values are invalid.
