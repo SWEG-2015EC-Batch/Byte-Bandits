@@ -3,7 +3,7 @@
 using namespace std;
 
 int main()
- {
+{
   double fileSize, transRate {960}, transTime;
 
   cout << "Enter file size in MB: ";
@@ -11,7 +11,6 @@ int main()
 
   // Convert files' size to bytes
   fileSize = fileSize * 1024 * 1024;
-
   transTime = fileSize / transRate;
 
   cout << "Time to transmit a " << fileSize << " byte file at "  
