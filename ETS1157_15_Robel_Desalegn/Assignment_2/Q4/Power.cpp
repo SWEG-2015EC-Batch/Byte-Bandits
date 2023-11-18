@@ -1,4 +1,4 @@
-// This program calculate power of a number taking base and exponent from the user
+// This program calculates the power of a number taking base and exponent from the user
 #include <iostream>
 #include <cmath>
 
@@ -12,10 +12,9 @@ int main()
   cin >> x;
   cout << "Enter y: ";
   cin >> y;
-
+  
   result = pow(x, y);
-
+  
   cout << x << "^" << y << " = " << result << endl;
-
   return 0;
 }
