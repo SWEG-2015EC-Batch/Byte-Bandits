@@ -34,7 +34,7 @@ id3-->id5;
 id5-->id6;
 id7-->id6;
 ```
- PSEUDO CODE
+ PSEUDOCODE
 
 1. start
 2. read two decimals,  one base and another exponent
