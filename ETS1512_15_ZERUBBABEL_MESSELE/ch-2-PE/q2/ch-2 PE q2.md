@@ -35,7 +35,6 @@ id4-->id5;
  
 1. start
 2. read fuel capcity and mileage
-3. if invalid input, print error and exit unsuccessfully. Negative values are invalid.
-4. distance = capacity * mileage
-5. print distance
-6. end
+3. distance = capacity * mileage
+4. print distance
+5. end
