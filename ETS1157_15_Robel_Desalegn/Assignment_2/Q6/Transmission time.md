@@ -13,18 +13,34 @@
   - Time required to transmit the file
 3. Algorithm
    1. Start
-   1. Input file size in MB
-   1. Convert file size to bytes = size \* 1024 \* 1024
-   1. Input transmission rate in characters per second
-   1. Calculate transmission time = file size in bytes/transmission rate
-   1. Print transmission time
-   1. End
-3. Program Design
+   2. Input file size in MB
+   3. Convert file size to bytes = size \* 1024 \* 1024
+   4. Input transmission rate in characters per second
+   5. Calculate transmission time = file size in bytes/transmission rate
+   6. Print transmission time
+   7. End
+
+Algorithm: Flowchart
+```mermaid
+graph LR;
+id1([Start]);
+id2[/Read file size/];
+id3(file size= size \* 1024 \* 1024);
+id4(time = file size / 960);
+id5[/Print time/];
+id6([End]);
+id1-->id2;
+id2-->id3;
+id3-->id4;
+id4-->id5;
+id5-->id6;
+```
+4. Program Design
    1. Declare fileSize, transRate, transTime variables
-   1. Input fileSize in MB
-   1. Convert fileSize to bytes
-   1. Set transRate value
-   1. Calculate transTime = fileSize / transRate
-   1. Print transTime result
-   1. End
+   2. Input fileSize in MB
+   3. Convert fileSize to bytes
+   4. Set transRate value
+   5. Calculate transTime = fileSize / transRate
+   6. Print transTime result
+   7. End
 
