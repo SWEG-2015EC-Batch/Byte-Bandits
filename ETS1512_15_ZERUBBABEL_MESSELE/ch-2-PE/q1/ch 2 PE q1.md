@@ -21,18 +21,13 @@ ALGORITHM
 graph LR;
 id1([Start]);
 id2[/Read weight, height/];
-id4{weight < 0 or height <= 0?};
 id3(BMI = weight/height * height);
-id5[/Print BMI/];
-id7[/Print ERROR/];
-id6([End]);
+id4[/Print BMI/];
+id5([End]);
 id1-->id2;
-id2-->id4;
-id4--yes-->id7;
-id4--no-->id3;
-id3-->id5;
-id5-->id6;
-id7-->id6;
+id2-->id3;
+id3-->id4;
+id4-->id5;
 ```
  PSEUDOCODE
 
