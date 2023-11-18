@@ -13,6 +13,8 @@
   - Read weight and height
   - Calculate BMI = weight/(height\*height)
   - print BMI
+
+Algorithm: Flowchart
 ```mermaid
 graph LR;
 id1([Start]);
