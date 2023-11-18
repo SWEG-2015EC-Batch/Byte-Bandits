@@ -14,7 +14,8 @@ PROCESS
 -BMI = weight/)height * height 
 
 ALGORITHM
- FLOWCHART
+ 
+  FLOWCHART
 
 ```mermaid
 graph LR;
