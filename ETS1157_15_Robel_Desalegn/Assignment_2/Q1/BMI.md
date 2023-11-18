@@ -13,6 +13,7 @@
   - Read weight and height
   - Calculate BMI = weight/(height\*height)
   - print BMI
+  - End
 
 Algorithm: Flowchart
 ```mermaid
@@ -27,9 +28,6 @@ id2-->id3;
 id3-->id4;
 id4-->id5;
 ```
-
-
-  5. End
 
 4. Program Design
    1. Declare variables for height, weight, and BMI
