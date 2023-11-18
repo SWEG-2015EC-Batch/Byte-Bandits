@@ -14,6 +14,7 @@ PROCESS
 - Use power(double, double) from cmath library
 
 ALGORITHM
+
  FLOWCHART
 
  ```mermaid
