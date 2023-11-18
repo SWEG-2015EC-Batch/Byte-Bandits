@@ -20,7 +20,7 @@ ALGORITHM
 graph LR;
 id1([Start]);
 id2[/Read file size/];
-id3(time = file size / 960);
+id3(time = file size / CPS);
 id4[/Print time/];
 id5([End]);
 id1-->id2;
