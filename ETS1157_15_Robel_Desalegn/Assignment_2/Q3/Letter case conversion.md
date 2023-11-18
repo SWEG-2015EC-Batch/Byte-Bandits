@@ -10,26 +10,27 @@
   - Check if letter is lowercase using islower()
   - If yes, convert to uppercase using toupper()
 - Output: The converted letter in opposite case
-2. Algorithm 
-   1. Start
-   1. Prompt user to input a letter
-   1. Read input letter
-   1. Read user input into letter
-   1. If letter is uppercase: Convert letter to lowercase
-   1. Else if letter is lowercase : Convert letter to uppercase
-   1. Else: Print "Not a letter"
-   1. Print converted letter
-   1. End
-2. Program Design
+3.  Algorithm 
+  1. Start
+  2. Prompt user to input a letter
+  3. Read input letter
+  4. Read user input into letter
+  5. if letter is uppercase: Convert letter to lowercase
+  6. Else if letter is lowercase : Convert letter to uppercase
+  7. Else: Print "Not a letter"
+  8. Print converted letter
+  9. End
+4. Program Design
    1. Import cctype library
-   1. Declare letter variable (char)
-   1. Print a prompt for user’s input "Enter a letter: "
-   1. Read user input into letter
-   1. If isupper(letter) 
-   1. Print converted lowercase letter using tolower()
-   1. Else if islower(letter) 
-   1. Print converted uppercase letter using toupper()
-   1. Else 
-   1. Print "Not a letter"
+   2. Declare letter variable (char)
+   3. print a prompt for user’s input "Enter a letter: "
+   4. Read user input into letter
+   5. If isupper(letter) 
+   6. Print converted lowercase letter
+using tolower()
+   8. Else if islower(letter) 
+   &. Print converted uppercase letter using toupper()
+   9. Else 
+   10. Print "Not a letter"
 
 
