@@ -12,7 +12,9 @@ PROCESS
 
 - Use case changing functions from ctype standard library - toupper(char) and tolower() functions.:
 
-FLOWCHART
+ALGORITHM
+
+ FLOWCHART
 
 ```mermaid
 graph LR;
@@ -37,8 +39,7 @@ id5-->id6;
 id7-->id6;
 ```
 
-ALGORITHM
-
+ PSEUDO CODE
 1. start
 2. read a character from the keyboard
 3. check if a valid character. Only alphabetic characters are accepted.
