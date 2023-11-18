@@ -10,13 +10,13 @@
   - Convert file size from MB to bytes by multiplying by 1024\*1024
   - Calculate transmission time = File size in bytes / Transmission rate
 - Output: 
-  - Time required to transmit file
+  - Time required to transmit the file
 3. Algorithm
    1. Start
    1. Input file size in MB
    1. Convert file size to bytes = size \* 1024 \* 1024
    1. Input transmission rate in characters per second
-   1. Calculate transmission time = file size in bytes / transmission rate
+   1. Calculate transmission time = file size in bytes/transmission rate
    1. Print transmission time
    1. End
 3. Program Design
