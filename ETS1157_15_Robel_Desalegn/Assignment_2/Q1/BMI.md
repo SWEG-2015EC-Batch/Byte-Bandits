@@ -4,7 +4,7 @@
 - Write a program that calculates the BMI of a person. The program should read inputs from the user such as weight and height.
 
 2. Problem Analysis
-- Input: height and weight
+- Input: height and weight.
 - Process: BMI = weight/(height\*height)
 - Output: BMI
 
