@@ -1,5 +1,4 @@
-﻿
-Power
+﻿Power
 
 1. Problem Description
 - Write a program to calculate x raised to the power y based on user input.
@@ -9,7 +8,7 @@ Power
 - Output: x^y result
 3. Algorithm
    1. Start
-   1. Prompt user to input x and y
+   1. Prompt the user to input x and y
    1. Read x input and y input
    1. Calculate result = pow(x, y)
    1. Print x^y = result
