@@ -19,3 +19,4 @@ ALGORITHM
 3.bmi = weight/(height * height)
 4.print bmi
 5.end
+
