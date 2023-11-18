@@ -8,19 +8,32 @@
 - Output: x^y result
 3. Algorithm
    1. Start
-   1. Prompt the user to input x and y
-   1. Read x input and y input
-   1. Calculate result = pow(x, y)
-   1. Print x^y = result
-   1. End
-3. Program Design
+   2. Prompt the user to input x and y
+   3. Read x input and y input
+   4. Calculate result = pow(x, y)
+   5. Print x^y = result
+   6. End
+
+Algorithm: Flowchart
+```mermaid
+graph LR;
+id1([Start]);
+id2[/Read x, y/];
+id3(power =x^y);
+id4[/Print power/];
+id5([End]);
+id1-->id2;
+id2-->id3;
+id3-->id4;
+id4-->id5;
+```
+4. Program Design
    1. Import cmath library
-   1. Declare x, y, result variables
-   1. Print "Enter x:"
-   1. Read user input for x
-   1. Print "Enter y:"
-   1. Read user input for y
-   1. Calculate result = pow(x, y)
-   1. Print x + "^" + y + " = " + result
-   1. End program
+   2. Declare x, y, result variables
+   3. Print "Enter x:"
+   4. Read user input for xPrint "Enter y:"
+   5. Read user input for y
+   6. Calculate result = pow(x, y)
+   7. Print x + "^" + y + " = " + result
+   8. End program
 
