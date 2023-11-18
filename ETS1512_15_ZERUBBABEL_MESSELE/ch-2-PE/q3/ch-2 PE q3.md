@@ -39,7 +39,7 @@ id5-->id6;
 id7-->id6;
 ```
 
- PSEUDO CODE
+ PSEUDOCODE
 1. start
 2. read a character from the keyboard
 3. check if a valid character. Only alphabetic characters are accepted.
