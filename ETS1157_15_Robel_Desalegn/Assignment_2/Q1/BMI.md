@@ -13,6 +13,20 @@
   - Read weight and height
   - Calculate BMI = weight/(height\*height)
   - print BMI
+```mermaid
+graph LR;
+id1([Start]);
+id2[/Read weight, height/];
+id3(BMI = weight/height * height);
+id4[/Print BMI/];
+id5([End]);
+id1-->id2;
+id2-->id3;
+id3-->id4;
+id4-->id5;
+```
+
+
   5. End
 
 4. Program Design
