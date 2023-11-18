@@ -18,7 +18,7 @@ int main(){
 
     if (working_hours > 40)
     {
-         bonus = (working_hours - 40) * bonus_rate; 
+         bonus = (working_hours - 40) * (bonus_rate /100); 
     }
     else {
             bonus = 0;
@@ -26,12 +26,12 @@ int main(){
     
     pension = base * 0.05;
     tax = base * 0.15;
-    gross = bonus = base;
+    gross = bonus + base;
     net = gross - pension - tax;
 
     cout << name << "'s gross salary is " << gross <<endl;
     cout << name << "'s bonus salary is " << bonus <<endl;
-    cout << name << "'s net salary" << net <<endl;
+    cout << name << "'s net salary is " << net <<endl;
 
     return 0;
 }
