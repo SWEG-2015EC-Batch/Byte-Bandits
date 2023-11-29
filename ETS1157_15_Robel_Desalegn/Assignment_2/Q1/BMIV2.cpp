@@ -33,9 +33,6 @@ if (bmi > 30) {
         else if (bmi < 30){
           std::cout << "You are Over Weight." << std::endl;
         }
-        else {
-          std::cout << "You are obese " << std::endl;
-        }
       }
       else if ((gender == 'F') || (gender == 'f')) {
         if (bmi < 18.5){
@@ -47,12 +44,9 @@ if (bmi > 30) {
         else if (bmi < 30){
            std::cout << "You are Over Weight." << std::endl;  
         }
-        else {
-          std::cout << "You are obese " << std::endl; 
-        }
       } 
-      else {
-        std::cout << "Invalid gender!" << std::endl;  
+        else {
+           std::cout << "Invalid gender!" << std::endl;  
       }
     }
 
