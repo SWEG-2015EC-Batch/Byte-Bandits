@@ -1,0 +1,64 @@
+#include <iostream>
+using namespace std;
+int main(){
+    int nmp;
+    float height, weight, BMI ;
+    char gender;
+
+    cout << "How many people are there?" << endl;
+    cin >> nmp;
+
+    for(int i = 1; i <= nmp; i++){
+        cout <<"\n Person: " << i << endl;
+        cout<<"Enter your gender \"M\" for male and \"F\" for female \n";
+        cin>>gender;
+
+        cout<<"Enter your height in meter\n";
+        cin>>height;
+
+        cout<<"Enter your weight in kilogram\n";
+        cin>>weight;
+
+        BMI=weight/(height*height);
+        if(BMI>30) {
+            cout<<"obesity";
+        }
+        else if(gender == 'M'||gender=='m'){
+                gender = 'M';
+                cout<<"Your BMI is "<<BMI <<endl
+                <<"Your gender is: "<<gender<<endl;
+            
+                if (BMI < 20.5){
+                cout<< "You are underweight! Eat more!";
+                }
+                 else if (BMI <25){
+                 cout<<"You are of normal weight. Good job!";
+                }
+                 else if (BMI < 30){
+                 cout<<"You are over weight! Hit the nearest gym sometimes.";
+                }
+        }
+
+        else if (gender == 'F' || gender =='f'){
+                cout <<"Your BMI is:  " << BMI << endl
+               <<"Your gender is: F" << endl;
+                if (BMI < 18.5){
+                cout<< "You are underweight! Eat more!";
+                }
+                else if (BMI <24){
+                cout<<"You are of normal weight. Good job!";
+                }
+                else if (BMI < 30){
+                cout<<"You are over weight! Hit the nearest gym sometimes.";
+                 }
+        }
+        else {
+             cout<<"There is no such gender as " << gender;
+        }
+        }
+
+
+
+return 0;
+
+}
