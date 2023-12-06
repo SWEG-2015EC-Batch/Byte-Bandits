@@ -30,10 +30,10 @@ id4-->id5;
 ```
 
 4. Program Design
-   1. Declare variables for height, weight, and BMI
-   2. Print prompts the user to input weight and height
-   3. Read user input into weight and height variables
-   4. Calculate BMI by dividing weight by height squared
-   5. Print output message with calculated BMI value
-   6. End
+  1. Declare variables for height, weight, and BMI
+  2. Print prompts the user to input weight and height
+  3. Read user input into weight and height variables
+  4. Calculate BMI by dividing weight by height squared
+  5. Print output message with calculated BMI value
+  6. End
 

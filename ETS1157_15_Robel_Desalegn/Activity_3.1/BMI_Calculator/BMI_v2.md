@@ -12,25 +12,52 @@ BMI_v2
 
 3. Algorithm
 
-- Start
-- Read weight and height
-- Calculate BMI = weight/(height\*height)
-- print BMI
-- End
+1. Start
+2. Declare variables
+   - height, weight, gender,number of person
+3. prompt the user to enter height, weight, number of person, and gender
+4. Read user input on height and weight
+5. Calculate BMI 
+   - BMI = weight / (height * height)
+6. If BMI > 30
+   - Print BMI + message
+7. else 
+   - read user input into gender 
+8. If gender is "male"
+    - Print BMI + message
+9. Else If gender is "female"
+    - Print "BMI + message
+10. end  
+
 
 Algorithm: Flowchart
 
 ```mermaid
 graph LR;
 id1([Start]);
-id2[/Read weight, height/];
+id2[/Read height,weight,gender/];
 id3(BMI = weight/height * height);
-id4[/Print BMI/];
-id5([End]);
+id4{BMI > 30?};
+id5[/Print BMI + message/];
+id6{Male or Female?};
+id7{Male};
+id8{Female};
+id9(check the corresponding weight class);
+id10([End]);
 id1-->id2;
 id2-->id3;
 id3-->id4;
-id4-->id5;
+id4--yes-->id5;
+id4--no-->id6;
+id6-->id7;
+id6-->id8;
+id7-->id9;
+id8-->id9;
+id9-->id5;
+id5-->id10;
+id9-->id10;
+
+```
 ```
 
 4. Program Design

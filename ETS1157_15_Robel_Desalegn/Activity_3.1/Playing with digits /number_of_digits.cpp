@@ -15,7 +15,7 @@ int main()
         num /= 10;
         count++;
     }
-    std::cout << "The number of digits = " << count << std::endl;
+    std::cout << "The number has " <<  count << " digits" << std::endl;
 
     return 0;
 }
