@@ -1,0 +1,47 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+float height, weight, BMI ;
+char gender;
+cout<<"enter your gender \"M\" for male and \"F\" for female \n";
+cin>>gender;
+cout<<"enter your height in meter\n";
+cin>>height;
+cout<<"enter your weight in kilogram\n";
+cin>>weight;
+BMI=weight/(height*height);
+if (gender == 'M'||gender=='m'){
+    gender = 'M';
+    cout<<"your BMI is "<<BMI<<" , your gender is "<<gender<<endl;
+    if (BMI < 20.5){
+   cout<< "you are underweight";
+   }
+   else if (BMI <25){
+    cout<<"you are normal weight";
+    }
+    else if (BMI < 30){
+    cout<<"you are over weight";
+    }
+    else 
+    cout<<"obesity";}
+    else if (gender == 'F'||gender =='f'){
+        gender='F';
+    cout<<"your BMI is "<<BMI<<" , your gender is "<<gender<<endl;
+    if (BMI < 18.5){
+   cout<< "you are underweight";
+   }
+   else if (BMI <24){
+    cout<<"you are normal weight";
+    }
+    else if (BMI < 30){
+    cout<<"you are over weight";
+    }
+    else 
+    cout<<"obesity";}
+    
+else {cout<<"error";}
+
+
+    return 0;
+}
