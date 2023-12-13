@@ -1,5 +1,4 @@
-// Reads in a character, and prints its it out with its character inverted
-// By: paulusel
+
 #include <iostream>
 #include <cctype>
 
