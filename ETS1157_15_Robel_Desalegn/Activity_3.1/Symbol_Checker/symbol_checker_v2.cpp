@@ -8,6 +8,24 @@ int main() {
 
   if(ch >= 'A' && ch <= 'Z') {
     std::cout << "It is an Upper case character"; 
+    
+    switch(ch) {
+      case 'a': 
+      case 'e':
+      case 'i':  
+      case 'o':
+      case 'u':
+      case 'A':
+      case 'E':
+      case 'I':
+      case 'O':
+      case 'U':
+        std::cout << " and Vowel" << std::endl;
+        break;
+      default: 
+        std::cout << " amd Consonant" << std::endl;
+    }
+    
   }
   else if(ch >= 'a' && ch <= 'z') {
     std::cout << "It is a Lower case character";
@@ -18,6 +36,11 @@ int main() {
       case 'i':  
       case 'o':
       case 'u':
+      case 'A':
+      case 'E':
+      case 'I':
+      case 'O':
+      case 'U':
         std::cout << " and Vowel" << std::endl;
         break;
       default: 

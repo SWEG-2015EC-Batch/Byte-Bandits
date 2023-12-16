@@ -1,15 +1,15 @@
-1. Problem Desciption 
+1. Problem Description 
     - write a program that acts as a simple calculator that provides arithmetic capabilities to the user. 
-    The program should accept two integers and an operator from user
-2. Probelm Analysis
+    The program should accept two integers and an operator from the user
+2. Problem Analysis
 
 Input:
     op: Character to store arithmetic operator entered by user
     num1, num2: Integers to store the two operands entered by user
 Process:
-    Read operand and operator from user
+    Read operand and operator from the user
     Validate operator
-    Perform arithmetic operation based on operator
+    Perform arithmetic operations based on the operator
         If +, add num1 and num2
         If -, subtract num2 from num1
         If *, multiply num1 and num2
@@ -19,7 +19,7 @@ Process:
 Output:
     If invalid operator, print error
     If divide by 0, print undefined
-    Otherwise, print result of arithmetic operation on num1 and num2
+    Otherwise, print the result of the arithmetic operation on num1 and num2
 
 3. Algorithm 
     1. Start
@@ -85,8 +85,8 @@ id7-->id12;
 id8-->id13;
 id9-->id16;
 id10-->id15;
-id16--yes-->id14;
-id16--no-->id21;
+id16--no-->id14;
+id16--yes-->id21;
 id21-->id18;
 id11-->id17;
 id12-->id17;
