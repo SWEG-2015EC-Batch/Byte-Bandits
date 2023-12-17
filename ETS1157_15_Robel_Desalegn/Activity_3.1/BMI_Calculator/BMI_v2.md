@@ -12,22 +12,22 @@ BMI_v2
 
 3. Algorithm
 
-1. Start
-2. Declare variables
-   - height, weight, gender,number of person
-3. prompt the user to enter height, weight, number of person, and gender
-4. Read user input on height and weight
-5. Calculate BMI 
-   - BMI = weight / (height * height)
-6. If BMI > 30
-   - Print BMI + message
-7. else 
-   - read user input into gender 
-8. If gender is "male"
-    - Print BMI + message
-9. Else If gender is "female"
-    - Print "BMI + message
-10. end  
+   1. Start
+   2. Declare variables
+      - height, weight, gender,number of person
+   3. prompt the user to enter height, weight, number of person, and gender
+   4. Read user input on height and weight
+   5. Calculate BMI 
+      - BMI = weight / (height * height)
+   6. If BMI > 30
+      - Print BMI + message
+   7. else 
+      - read user input into gender 
+   8. If gender is "male"
+      - Print BMI + message
+   9. Else If gender is "female"
+      - Print "BMI + message
+   10. end  
 
 
 Algorithm: Flowchart

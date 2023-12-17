@@ -1,3 +1,4 @@
+//This program calculates the net salary of an employee based on inputs provided by the user.
 #include <iostream>
 
 int main(){
