@@ -3,15 +3,15 @@ using namespace std;
 int main()
 {
     char op;
-    double num1, num2; 
+    double num1, num2;
 
     do
     {
-        
+
 
         cout << "Enter the first number: ";
         cin >> num1;
-        
+
         cout << "Enter the second number: ";
         cin >> num2;
         cout << "Enter operator: ";
@@ -38,8 +38,8 @@ int main()
         cout << "Enter 0 to exit, anything else to continue: ";
         cin >> op;
 
-    } 
-    
+    }
+
     while (op != '0');
 
     return 0;
