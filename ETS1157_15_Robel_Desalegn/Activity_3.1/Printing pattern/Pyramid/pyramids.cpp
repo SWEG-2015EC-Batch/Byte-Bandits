@@ -1,3 +1,5 @@
+//This program prints out different shapes using asterids(*)
+//by Robeill
 #include <iostream>
 
 int main()

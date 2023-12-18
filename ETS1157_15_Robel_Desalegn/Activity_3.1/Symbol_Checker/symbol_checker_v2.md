@@ -48,3 +48,32 @@ Output
     9. Stop
 
 4. Algorithm(Flowchart)
+
+```mermaid
+graph TD
+A[Start] --> B{Get character input}
+B --> C{Is Uppercase letter?}
+C -- Yes --> D["It is Upper case"] 
+D --> E{Is Vowel?}
+E -- Yes --> F["and Vowel"]
+E -- No --> G["and Consonant"]
+C -- No --> H{Is Lowercase letter?} 
+H -- Yes --> I["It is Lower case"]
+I --> J{Is Vowel?}
+J -- Yes --> K["and Vowel"]  
+J -- No --> L["and Consonant"]
+H -- No --> M{Is Digit?}
+M -- Yes --> N["It is a Digit"]   
+N --> O{Is Even?}
+O -- Yes --> P["and Even"] 
+O -- No --> Q["and Odd"]
+M -- No --> R["It is Special character"]
+
+F --> S[End]
+G --> S
+K --> S 
+L --> S
+P --> S
+Q --> S
+R --> S
+```

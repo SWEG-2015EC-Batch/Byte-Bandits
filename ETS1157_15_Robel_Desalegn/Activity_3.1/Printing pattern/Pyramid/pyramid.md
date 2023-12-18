@@ -56,3 +56,41 @@ Outputs:
    10. End
 
 4. Algortihm(Flowhcart)
+
+```mermaid
+graph TD
+    A[Start] --> B{Print menu}
+    B --> C{Get choice}
+    C --> D{Get rows}
+    D --> E{choice == 1?}
+    E -->|Yes| F[Print Half Pyramid]
+    E -->|No| G{choice == 2?}
+    G -->|Yes| H[Print Inverted Half Pyramid]
+    G -->|No| I{choice == 3?}
+    I -->|Yes| J[Print Hollow Inverted Half Pyramid]
+    I -->|No| K{choice == 4?}
+    
+    K -->|Yes| L[Print Full Pyramid]
+    K -->|No| M{choice == 5?} 
+    M -->|Yes| N[Print Inverted Full Pyramid]
+    M -->|No| O{choice == 6?}
+    O -->|Yes| P[Print Hollow Full Pyramid]
+    O -->|No| Q{choice == 7?}
+    
+    Q -->|Yes| R{Get columns}
+    R --> S[Print Full Rectangle]
+    Q -->|No| T{choice == 8?}
+    T -->|Yes| U{Get columns}
+    U --> V[Print Hollow Rectangle]
+    T -->|No| W[Invalid choice]
+    
+    V --> X[End]
+    S --> X
+    P --> X
+    L --> X
+    N --> X
+    J --> X
+    H --> X
+    F --> X
+    W --> X
+```

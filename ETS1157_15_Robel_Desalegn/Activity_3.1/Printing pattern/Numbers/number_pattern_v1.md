@@ -21,4 +21,22 @@ Print a pattern of increasing numbers in a tabular format with 4 rows and 11 col
     8. Repeat steps 3-6 to print 4 rows 
     9. End
 
-Algorithm(FLowchart)
+4. Algorithm(FLowchart)
+
+
+```mermaid
+graph TD
+    A[Start] --> B{Define num = 10}
+    B --> C{Define i = 0}
+    C --> D{i < 4}
+    D -->|Yes| E{Define j = 0}
+    E --> F{j < 11}
+    F -->|Yes| G{Print num \t}
+    G --> H{num++}
+    H --> I{j++}  
+    I --> F
+    F -->|No| J{Print \n}
+    J --> K{i++}
+    K --> D
+    D -->|No| L[End]
+```

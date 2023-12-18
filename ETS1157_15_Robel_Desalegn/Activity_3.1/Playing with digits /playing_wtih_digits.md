@@ -87,3 +87,50 @@ The program implements a menu-driven system to perform various operations on an 
    20. stop
 
 4. Algorithm (Flowchart)
+
+```mermaid
+graph TD
+    A[Start] --> B{Print menu}
+    B --> C{Get choice}
+    C --> D{choice == 0?}
+    D -->|Yes| E[End]
+    D -->|No| F{Get number}
+    F --> G{choice == 1?}
+    G -->|Yes| H[Reverse number]
+    G -->|No| I{choice == 2?}
+    I -->|Yes| J[Count digits]
+    I -->|No| K{choice == 3?}
+    K -->|Yes| L[Sum digits]
+    
+    K -->|No| M{choice == 4?}
+    M -->|Yes| N[Product even digits]   
+    M -->|No| O{choice == 5?}
+    O -->|Yes| P[First & last digit sum]
+    O -->|No| Q{choice == 6?}
+    Q -->|Yes| R[Swap first & last digit]
+    Q -->|No| S{choice == 7?}
+    S -->|Yes| T[Check palindrome]
+    S -->|No| U{choice == 8?}
+    U -->|Yes| V[Print digit frequency]
+    U -->|No| W{choice == 9?}
+    
+    W -->|Yes| X[Check Armstrong number]
+    W -->|No| Y{choice == 10?}  
+    Y -->|Yes| Z[Check strong number]
+    Y -->|No| Aa{choice == 11?}
+    Aa -->|Yes| Bb[Check perfect number]
+    Aa -->|No| Cc[Invalid choice]
+    
+    H --> C
+    J --> C
+    L --> C
+    N --> C 
+    P --> C
+    R --> C
+    T --> C
+    V --> C 
+    X --> C
+    Z --> C
+    Bb --> C
+    Cc --> C
+```

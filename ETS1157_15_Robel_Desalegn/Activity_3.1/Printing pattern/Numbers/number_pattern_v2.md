@@ -27,4 +27,24 @@ Print a pattern of increasing numbers in a tabular format based on user input fo
     9. Repeat steps 4 to 7 until outer loop finishes all rows
     10. Exit
 
-Algoritm (Flowchart)
+4. Algoritm (Flowchart)
+
+```mermaid
+graph TD
+    A[Start] --> B{Get rows from user}
+    B --> C{Get columns from user}
+    C --> D{Define num = 10}
+    D --> E{Define i = 0}
+    E --> F{i < rows?}
+    F -->|Yes| G{Define j = 0}
+    G --> H{j < columns?} 
+    H -->|Yes| I{Print num \t}
+    I --> J{num++}
+    J --> K{j++}
+    K --> H
+    H -->|No| L{Print \n}
+    L --> M{i++}
+    M --> F
+    F -->|No| N[End]
+```
+```

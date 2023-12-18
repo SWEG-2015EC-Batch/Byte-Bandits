@@ -1,3 +1,8 @@
+/* This program checks if a character is alphabet and further if it's a vowel or consonant.
+It then checks if it's a digit and further even or odd, if it's not an alphabet. At the end if it's
+not both an alphabet and a digit, it is a special character */
+//by Robeill
+
 #include <iostream>
 
 int main() {

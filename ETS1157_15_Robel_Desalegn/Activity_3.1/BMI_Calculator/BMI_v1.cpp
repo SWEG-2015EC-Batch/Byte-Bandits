@@ -1,4 +1,5 @@
 // This program calculates BMI of a person based on weight and height
+//by Robeill
 #include <iostream>
 using namespace std;
 

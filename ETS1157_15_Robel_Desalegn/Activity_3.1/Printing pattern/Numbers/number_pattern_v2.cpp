@@ -1,3 +1,5 @@
+//This program take number of rows and columns from user and prints out the number starting from 10
+//by Robeill
 #include <iostream>
 
 int main()

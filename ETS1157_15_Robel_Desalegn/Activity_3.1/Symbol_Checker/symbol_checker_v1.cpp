@@ -1,3 +1,5 @@
+//This program checks if a character enterd by a user is an alphabet, digit, or special character
+//by Robeill
 #include <iostream>
 
 int main()

@@ -1,3 +1,5 @@
+//This program does a of tricks by taking a number from a user
+//by Robeill
 #include <iostream>
 #include <math.h>
 

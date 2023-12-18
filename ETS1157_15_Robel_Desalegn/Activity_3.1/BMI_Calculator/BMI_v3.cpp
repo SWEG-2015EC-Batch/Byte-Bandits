@@ -1,6 +1,6 @@
 /* This program calculates BMI for multiple people based on their height and weight,
 and classifies their weight status based on their gender */
-
+//by Robeill
 #include <iostream>
 
 int main()

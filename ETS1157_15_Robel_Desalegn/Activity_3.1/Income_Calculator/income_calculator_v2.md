@@ -27,3 +27,26 @@
     11. End
 
 4. Algorithm (Flowchart)
+
+```mermaid
+graph TD
+    A[Start] --> B{Get Inputs}
+    B --> C{Check invalid} 
+    C -- Valid --> D{Get tax rate}
+    D --> E{Get overtime}
+    E --> F[Calculate bonus]
+    F --> G[Calculate net salary]
+    G --> H[Print net salary]
+    
+    C -- Invalid --> I[Invalid input]  
+    I --> J[End] 
+    
+    D -- <200 --> K[0%]
+    D -- <600 --> L[10%] 
+    D -- <1200 --> M[15%]
+    D -- <2000 --> N[20%]
+    D -- <3500 --> O[25%]
+    D -- >3500 --> P[30%]
+
+    H --> J
+```

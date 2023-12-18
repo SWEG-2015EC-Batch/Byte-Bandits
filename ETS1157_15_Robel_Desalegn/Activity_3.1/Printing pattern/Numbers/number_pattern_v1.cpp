@@ -1,3 +1,6 @@
+//This program print 10 - 49 in a order in a row and column
+//by Robeill
+
 #include <iostream>
 using namespace std;
 

@@ -1,4 +1,5 @@
 // This program calculates the Body Mass Index (BMI) and classifies the weight status of a person based on their gender.
+//by Robeill
 #include <iostream>
 
 int main()

@@ -1,5 +1,6 @@
 /*This program calculates the total mark of a course entered from the keyboard
 and conver it to its corresponding letter-grade */
+//by Robeill
 #include <iostream>
 
 int main()
