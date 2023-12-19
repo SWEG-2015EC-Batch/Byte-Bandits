@@ -1,31 +1,33 @@
-//This program calculates the mean and standard deviation of a list of numbers
+// This program calculates the mean and standard deviation of a list of numbers
+//by Robeill
+
 #include <iostream>
 #include <math.h>
 
 int main()
 {
-    double number, sum = 0.0, squareSum = 0.0;
-    int count = 0;
 
-    std::cout << "Enter numbers (enter 0 to stop): ";
+    double number, sum = 0.0, stdDevSum = 0.0;
+    int numCount = 0;
 
-    do
+    std::cout << "Enter numbers (enter non-number to stop): ";
+
+    while (std::cin >> number)
     {
-        std::cin >> number;
-        if (number != 0)
-        {
-            sum += number;
-            squareSum += pow(number, 2);
-            count++;
-        }
-    } while (number != 0);
+        sum += number;
+        numCount++;
 
-    double mean = sum / count;
+        double mean = sum / numCount;
 
-    double stdDev = sqrt((squareSum / count) - pow(mean, 2));
+        double diff = number - mean;
+        stdDevSum += diff * diff;
+    }
+
+    double stdDev = sqrt(stdDevSum / numCount);
+    double mean = sum / numCount;
 
     std::cout << "The Mean of the numbers is " << mean << std::endl;
-    std::cout << "The Standard deviation of the numbers is " << stdDev << std::endl;
+    std::cout << "The Standard Deviation of the numbers is " << stdDev;
 
     return 0;
 }
