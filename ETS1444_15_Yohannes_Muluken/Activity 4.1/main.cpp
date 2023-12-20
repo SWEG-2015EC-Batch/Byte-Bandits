@@ -4,7 +4,8 @@
 using namespace std;
 
 int main() {
-    int n, sum = 0, sumOfSquares = 0;
+    int n;
+    double sum = 0, sumOfSquares = 0;
     cout << "Enter the number of elements: ";
     cin >> n;
 
@@ -14,6 +15,7 @@ int main() {
         cin >> num;
         sum += num;
         sumOfSquares += (num * num);
+        
     }
 
     /* standard deviation can be calculated by taking the deviation of 
