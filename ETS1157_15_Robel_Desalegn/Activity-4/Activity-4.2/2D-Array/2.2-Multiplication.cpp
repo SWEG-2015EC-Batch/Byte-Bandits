@@ -1,3 +1,7 @@
+/* This program does the summation and multiplication of 
+numbers in the corresponding rows and columns*/
+// by Robeil
+
 #include <iostream>
 
 int main()

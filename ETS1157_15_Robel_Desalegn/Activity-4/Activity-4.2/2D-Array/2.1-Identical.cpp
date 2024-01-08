@@ -1,3 +1,6 @@
+// This Program Checks whether tow arays are identical or not
+// by Robeil
+
 #include <iostream>
 
 int main()
