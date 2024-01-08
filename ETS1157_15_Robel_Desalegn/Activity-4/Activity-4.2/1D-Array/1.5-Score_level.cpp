@@ -10,6 +10,7 @@ int main()
     std::cin >> stud;
 
     int sMark[stud];
+    char sLevel[5][10] = {"Fail", "Poor", "Fair", "Very Good", "Excellent"};
 
     std::cout << std::endl;
     for (int i = 0; i < stud; ++i)
@@ -25,27 +26,27 @@ int main()
         if (sMark[i] < 40)
         {
             std::cout << "Student " << i + 1 << " | " << sMark[i] << " | "
-                      << " Fail " << std::endl;
+                      << sLevel[0] << std::endl;
         }
         else if (sMark[i] < 50)
         {
             std::cout << "Student " << i + 1 << " | " << sMark[i] << " | "
-                      << " Poor " << std::endl;
+                      << sLevel[1] << std::endl;
         }
         else if (sMark[i] < 60)
         {
             std::cout << "Student " << i + 1 << " | " << sMark[i] << " | "
-                      << " Fair" << std::endl;
+                      << sLevel[2] << std::endl;
         }
         else if (sMark[i] < 80)
         {
             std::cout << "Student " << i + 1 << " | " << sMark[i] << " | "
-                      << " Very Good " << std::endl;
+                      << sLevel[3] << std::endl;
         }
         else if (sMark[i] <= 100)
         {
             std::cout << "Student " << i + 1 << " | " << sMark[i] << " | "
-                      << " Excellent " << std::endl;
+                      << sLevel[4] << std::endl;
         }
         else
         {
