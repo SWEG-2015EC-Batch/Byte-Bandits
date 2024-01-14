@@ -6,7 +6,7 @@ int main(){
     constexpr int maxsz= 100;
     int nums[maxsz], sz = 0;
 
-    cout<<"Enter integers. Press Enter and CTRL+D when done. Numbers beyond 100th element are ignored.\n";
+    cout<<"Enter integers. Press Enter 'a' when done. Numbers beyond 100th element are ignored.\n";
     while (sz < maxsz && cin>>nums[sz]) ++sz;
 
     cout<<"Evens are: ";

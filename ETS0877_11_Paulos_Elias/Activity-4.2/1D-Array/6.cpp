@@ -9,10 +9,10 @@ int main(){
     float marks[maxsz];
 
     int sz = 0; // actual size
-    cout<<"Enter student marks(Not more than 100 in number). Press Enter and then CTRL+D when done.\n";
+    cout<<"Enter student marks. Entries in excess of 100 are ignored. Enter 'a' when done.\n";
     while (sz < maxsz && cin>>marks[sz]) ++sz;
 
-    cout<<left<<setw(3)<<"No"<<setw(6)<<"Score"<<"Status"<<endl
+    cout<<"\n"<<left<<setw(3)<<"No"<<setw(6)<<"Score"<<"Status"<<endl
         <<setw(3)<<"=="<<setw(6)<<"====="<<"======"<<endl;
     for (int i = 0; i<sz; ++i){
         cout<<left<<setw(3)<<i+1<<setw(6)<<marks[i];
