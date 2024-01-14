@@ -13,8 +13,11 @@ int main(){
         n++;
         nmean += number;
         nvariance += (n==1 ? 0.0 : n*pow((nmean/n)-number, 2.0)/(n-1));
+        //std::cout << number << " ";
     }
-
+    
+    //std::cout << "\n";
+    std::cout.precision(10);
     std::cout << "Mean: " << (n==0 ? 0.0 : nmean/n) << "\n";
     std::cout << "Standard Deviation: " << (n==0 ? 0.0 : sqrt(nvariance/n))<< "\n";
 
