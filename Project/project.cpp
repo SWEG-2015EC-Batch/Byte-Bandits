@@ -1,12 +1,5 @@
-/*
- *Inventory management system
- *
- * This code is part of project for semester end.
- *
- *Byte Bandits, 2024.
- */
-
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -24,16 +17,37 @@ int main() {
             <<"4. Calculate Bonus"<<endl
             <<"4. Exit"<<endl;
         switch (option) {
-            case 1:
-                break;
+           case 1:
+                {
+                    string productName;
+                    cout << "Enter product name to search: ";
+                    getline(cin, productName);
+                    for (int i = 0; i < 5; ++i)
+                    {
+
+                        if (productName == products[1])
+                        {
+                        cout << "They are the same";
+                        }
+                    }
+
+                    break;
+                }
             case 2:
-                break;
+               break;
             case 3:
                 break;
             case 4:
                 break;
+
             case 5:
                 return 0;
+
+            default:
+                cout << "Invalid option. Please choose a valid option." << endl;
+                break;
+            }
         }
-    }
+
+    return 0;
 }
