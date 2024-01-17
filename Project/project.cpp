@@ -12,8 +12,9 @@ using namespace std;
 
 int main() {
     int inventory[30][5][4] {};
-    string salesppl[4] {};
-    string products[5] {};
+    string salesppl[4] {"Paulos", "Yonatan", "Zerubabel", "Robel"};
+    string products[5] {"Mobile", "Computer", "Disk", "Charger", "Cable"};
+    int day = 0;
 
     while (true) { int option; cin>>option;
         cout<<"What to do?"<<endl;
