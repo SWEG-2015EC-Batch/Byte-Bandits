@@ -17,7 +17,12 @@ int main() {
     int day = 0;
 
     while (true) { int option; cin>>option;
-        cout<<"What to do?"<<endl;
+        cout<<"What to do?"<<endl
+            <<"1. Input Report"<<endl
+            <<"2. Generate Report"<<endl
+            <<"3. Search"<<endl
+            <<"4. Calculate Bonus"<<endl
+            <<"4. Exit"<<endl;
         switch (option) {
             case 1:
                 break;
