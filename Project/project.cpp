@@ -11,5 +11,15 @@
 using namespace std;
 
 int main() {
-    //project here
+    while (true) { int option; cin>>option;
+        cout<<"What to do?"<<endl;
+        switch (option) {
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+                return 0;
+        }
+    }
 }
