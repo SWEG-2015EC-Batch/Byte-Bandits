@@ -124,7 +124,6 @@ int main()
                     ctots[j] = report[i][j];
                 }
                 ttot += rtot;
-
                 cout << setw(width) << rtot << "|";
                 cout << endl; // end of data elements
                 // line afterwards
@@ -163,7 +162,6 @@ int main()
 
             int searchOption;
             cin >> searchOption;
-
             switch (searchOption)
             {
             case 1:
@@ -172,156 +170,60 @@ int main()
                 cout << "Enter product name to search: ";
                 cin.ignore();
                 getline(cin, productName);
-
                 // Find index of product
                 int prodIndex;
                 for (int i = 0; i < nprod; i++)
                 {
-
                     if (products[i] == productName)
                     {
                         prodIndex = i;
                         break;
                     }
                 }
-                cout << "In which form do you want the data: " << endl;
-                cout << "1. Each days" << endl;
-                cout << "2. The whole month" << endl;
-
-                int choice;
-                cin >> choice;
-                switch (choice)
+                const int drow = 30, dcol = 4;
+                int rows = 30, colmuns = 6, width = 10;
+                cout << left;
+                // output first line
+                cout << "+";
+                for (int k = 0; k < colmuns; ++k)
                 {
-                case 1:
-                {
-                    const int drow = 30, dcol = 4;
-                    int rows = 30, colmuns = 6, width = 10;
-                    cout << left;
-                    // output first line
+                    for (int j = 0; j < width; ++j)
+                        cout << "-";
                     cout << "+";
-                    for (int k = 0; k < colmuns; ++k)
-                    {
-                        for (int j = 0; j < width; ++j)
-                            cout << "-";
-                        cout << "+";
-                    }
-                    cout << endl;
-                    // column markers
-                    cout << "|" << setw(width) << " "
-                         << "|";
-                    for (int i = 0; i < dcol; ++i)
-                        cout << setw(width) << salesppl[i] << "|";
-                    cout << setw(width) << "Total"
-                         << "|" << endl;
-                    //
-                    cout << "+";
-                    for (int k = 0; k < colmuns; ++k)
-                    {
-                        for (int j = 0; j < width; ++j)
-                            cout << "-";
-                        cout << "+";
-                    }
-                    cout << endl;
-                    //
-                    int ctots[dcol] = {}, ttot = {0};
-                    for (int i = 0; i < drow; ++i)
-                    {
-                        // row marker
-                        cout << "|" << setw(width) << i + 1 << "|"; // end of row marker
-                        // actual data elements
-                        int rtot = 0;
-                        for (int j = 0; j < dcol; ++j)
-                        {
-                            cout << setw(width) << inventory[i][prodIndex][j] << "|";
-                            rtot += inventory[i][prodIndex][j];
-                            ctots[j] = inventory[i][prodIndex][j];
-                        }
-                        ttot += rtot;
-
-                        cout << setw(width) << rtot << "|";
-                        cout << endl; // end of data elements
-                        // line afterwards
-                        cout << "+";
-                        for (int k = 0; k < colmuns; ++k)
-                        {
-                            for (int j = 0; j < width; ++j)
-                                cout << "-";
-                            cout << "+";
-                        }
-                        cout << endl;
-                    }
-
-                    break;
                 }
-                case 2:
+                cout << endl;
+                // column markers
+                cout << "|" << setw(width) << " " << "|";
+                for (int i = 0; i < dcol; ++i)
+                    cout << setw(width) << salesppl[i] << "|";
+                cout << setw(width) << "Total" << "|" << endl;
+                //
+                cout << "+";
+                for (int k = 0; k < colmuns; ++k)
                 {
-                    const int drow = 4, dcol = 1;
-                    int report[drow][dcol] = {};
-                    for (int i = 0; i < nday; ++i)
-                        for (int j = 0; j < nprod; ++j)
-                            for (int k = 0; k < nwhouse; ++k)
-                                report[j][k] += inventory[i][j][k];
-                    int rows = 4, colmuns = 2, width = 10;
-                    cout << left;
-                    // output first line
+                    for (int j = 0; j < width; ++j)
+                        cout << "-";
                     cout << "+";
-                    for (int k = 0; k < colmuns; ++k)
+                }
+                cout << endl;
+                //
+                int ctots[dcol] = {}, ttot = {0};
+                for (int i = 0; i < drow; ++i)
+                {
+                    // row marker
+                    cout << "|" << setw(width) << i + 1 << "|"; // end of row marker
+                    // actual data elements
+                    int rtot = 0;
+                    for (int j = 0; j < dcol; ++j)
                     {
-                        for (int j = 0; j < width; ++j)
-                            cout << "-";
-                        cout << "+";
+                        cout << setw(width) << inventory[i][prodIndex][j] << "|";
+                        rtot += inventory[i][prodIndex][j];
+                        ctots[j] = inventory[i][prodIndex][j];
                     }
-                    cout << endl;
-                    // column markers
-                    cout << "|" << setw(width) << " "
-                         << "|";
-                    cout << setw(width) << "Total"
-                         << "|" << endl;
-                    //
-                    cout << "+";
-                    for (int k = 0; k < colmuns; ++k)
-                    {
-                        for (int j = 0; j < width; ++j)
-                            cout << "-";
-                        cout << "+";
-                    }
-                    cout << endl;
-                    //
-                    int ttot = {0};
-                    int rtot = {0};
-                    for (int i = 0; i < drow; ++i)
-                    {
-                        // row marker
-                        cout << "|" << setw(width) << salesppl[i] << "|"; // end of row marker
-                        // actual data elements
-
-                        for (int j = 0; j < dcol; ++j)
-                        {
-
-                            cout << setw(width) << report[i][j] << "|";
-                            rtot += report[i][j];
-                        }
-
-                        cout << endl; // end of data elements
-
-                        // line afterwards
-                        cout << "+";
-                        for (int k = 0; k < colmuns; ++k)
-                        {
-                            for (int j = 0; j < width; ++j)
-                                cout << "-";
-                            cout << "+";
-                        }
-                        cout << endl;
-                    }
-                    // bottom total
-                    cout << "|" << setw(width) << "Total"
-                         << "|";
+                    ttot += rtot;
                     cout << setw(width) << rtot << "|";
-                    cout << endl;
-                    // total of total
-
-                    // line at the end
+                    cout << endl; // end of data elements
+                    // line afterwards
                     cout << "+";
                     for (int k = 0; k < colmuns; ++k)
                     {
@@ -330,44 +232,70 @@ int main()
                         cout << "+";
                     }
                     cout << endl;
-                    break;
                 }
-                break;
-                }
-                break;
             }
+            break;
             case 2:
             {
                 string salesPn;
-                cout << "Enter salesperson name to search: ";
+                cout << "Enter Salesperson name to search: ";
                 cin.ignore();
                 getline(cin, salesPn);
-
                 // Find index of salesperon
                 int prodIndex;
                 for (int i = 0; i < nprod; i++)
                 {
-
                     if (salesppl[i] == salesPn)
                     {
                         prodIndex = i;
                         break;
                     }
                 }
-                cout << "In which form do you want the data: " << endl;
-                cout << "1. Each days" << endl;
-                cout << "2. The whole month" << endl;
-
-                int choice;
-                cin >> choice;
-                switch (choice)
+                const int drow = 30, dcol = 5;
+                int rows = 30, colmuns = 7, width = 10;
+                cout << left;
+                // output first line
+                cout << "+";
+                for (int k = 0; k < colmuns; ++k)
                 {
-                case 1:
+                    for (int j = 0; j < width; ++j)
+                        cout << "-";
+                    cout << "+";
+                }
+                cout << endl;
+                // column markers
+                cout << "|" << setw(width) << " "
+                     << "|";
+                for (int i = 0; i < dcol; ++i)
+                    cout << setw(width) << products[i] << "|";
+                cout << setw(width) << "Total"
+                     << "|" << endl;
+                //
+                cout << "+";
+                for (int k = 0; k < colmuns; ++k)
                 {
-                    const int drow = 30, dcol = 5;
-                    int rows = 30, colmuns = 7, width = 10;
-                    cout << left;
-                    // output first line
+                    for (int j = 0; j < width; ++j)
+                        cout << "-";
+                    cout << "+";
+                }
+                cout << endl;
+                //
+                int ctots[dcol] = {}, ttot = {0};
+                for (int i = 0; i < drow; ++i)
+                {
+                    // row marker
+                    cout << "|" << setw(width) << i + 1 << "|"; // end of row marker
+                    // actual data elements
+                    int rtot = 0;
+                    for (int j = 0; j < dcol; ++j)
+                    {
+                        cout << setw(width) << inventory[i][j][prodIndex] << "|";
+                        rtot += inventory[i][j][prodIndex];
+                    }
+                    ttot += rtot;
+                    cout << setw(width) << rtot << "|" << endl;
+                    // end of data elements
+                    // line afterwards
                     cout << "+";
                     for (int k = 0; k < colmuns; ++k)
                     {
@@ -376,57 +304,11 @@ int main()
                         cout << "+";
                     }
                     cout << endl;
-                    // column markers
-                    cout << "|" << setw(width) << " "
-                         << "|";
-                    for (int i = 0; i < dcol; ++i)
-                        cout << setw(width) << products[i] << "|";
-                    cout << setw(width) << "Total"
-                         << "|" << endl;
-                    //
-                    cout << "+";
-                    for (int k = 0; k < colmuns; ++k)
-                    {
-                        for (int j = 0; j < width; ++j)
-                            cout << "-";
-                        cout << "+";
-                    }
-                    cout << endl;
-                    //
-                    int ctots[dcol] = {}, ttot = {0};
-                    for (int i = 0; i < drow; ++i)
-                    {
-                        // row marker
-                        cout << "|" << setw(width) << i + 1 << "|"; // end of row marker
-                        // actual data elements
-                        int rtot = 0;
-                        for (int j = 0; j < dcol; ++j)
-                        {
-                            cout << setw(width) << inventory[i][j][prodIndex] << "|";
-                            rtot += inventory[i][j][prodIndex];
-                            ctots[j] = inventory[i][prodIndex][j];
-                        }
-                        ttot += rtot;
-
-                        cout << setw(width) << rtot << "|" << endl;
-                        // end of data elements
-
-                        // line afterwards
-                        cout << "+";
-                        for (int k = 0; k < colmuns; ++k)
-                        {
-                            for (int j = 0; j < width; ++j)
-                                cout << "-";
-                            cout << "+";
-                        }
-                        cout << endl;
-                    }
-                    break;
                 }
-                }
-                break;
             }
+            break;
             default:
+                std::cout << "Invalid option. Please choose a valid option.";
                 break;
             }
             break;
