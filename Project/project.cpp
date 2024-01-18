@@ -1,17 +1,29 @@
+/*
+ *Inventory management system
+ *
+ * This code is part of project for semester end.
+ *
+ *Byte Bandits, 2024.
+ */
+
+#include <cctype>
 #include <iostream>
 #include <iomanip>
 
 using namespace std;
 
 int main() {
-    int inventory[30][5][4] {};
-    string salesppl[4] {"Paulos", "Yonatan", "Zerubabel", "Robel"};
-    string products[5] {"Mobile", "Computer", "Disk", "Charger", "Cable"};
+    constexpr int nday = 30, nprod = 5, nwhouse = 4, maxrep = 5; 
+    constexpr float bon_rate = 0.05;
+    int inventory[nday][nprod][nwhouse] {};
+    string products[nprod] {"Mobile", "Computer", "Disk", "Charger", "Cable"};
+    string salesppl[nwhouse] {"Paulos", "Yonatan", "Zerubabel", "Robel"};
     int day = 0;
 
+    cout<<"========================\n"<<right<<setw(15)<<"WELCOME!"<<"\n========================\n\n";
     while (true) {
         int option;
-        cout<<"What to do?"<<endl
+        cout<<"\nWhat to do?"<<endl
             <<"1. Input Report"<<endl
             <<"2. Generate Report"<<endl
             <<"3. Search"<<endl
@@ -20,18 +32,42 @@ int main() {
         cin>>option;
         switch (option) {
            case 1:
-               break;
+                {
+                    int count = 0;
+                    char opt;
+                    do {
+                        int prindx, whouse = 0;
+                        string prod;
+                        int qty = 0;
+
+                        cout<<"Enter data\n";
+                        cin.clear(); cout<<"Warehouse (1-4): "; cin>>whouse;
+                        cin.clear(); cout<<"Product: "; cin>>prod;
+                        for (int i = 0; i<nprod; ++i)
+                            if (products[i] == prod) {
+                                prindx = i;
+                                break;
+                            }
+                        cin.clear(); cout<<"Quantity: "; cin>>qty;
+                        inventory[day][prindx][whouse-1] = qty;
+                        ++count;
+                        if (count==maxrep) break; // done with todays reports
+                        cout<<"Done? (y/N): "; cin>>opt;
+                    } while (tolower(opt != 'y'));
+
+                    ++day;
+                    break;
+                }
            case 2:
                  {
                     constexpr int drow = 5, dcol = 4;
                     int report[drow][dcol] {};
-                    for (int i = 0; i<30; ++i)
-                        for (int j = 0; j<5; ++j)
-                            for (int k = 0; k<4; ++k)
-                                report[j][k] += inventory[i][j][j];
+                    for (int i = 0; i<nday; ++i)
+                        for (int j = 0; j<nprod; ++j)
+                            for (int k = 0; k<nwhouse; ++k)
+                                report[j][k] += inventory[i][j][k];
                     // print table
-                    int rows = 5, colmuns = 6;
-                    int width = 10, length = colmuns*(width+1);
+                    int rows = 5, colmuns = 6, width = 10;
                     cout<<left;
                     //output first line
                     cout<<"+"; for (int k = 0; k<colmuns; ++k) { for (int j = 0; j<width; ++j) cout<<"-"; cout<<"+"; } cout<<endl;
@@ -52,8 +88,9 @@ int main() {
                             cout<<setw(width)<<report[i][j]<<"|";
                             rtot += report[i][j];
                             ctots[j] = report[i][j];
-                            ttot += rtot;
                         }
+                        ttot += rtot;
+
                         cout<<setw(width)<<rtot<<"|";
                         cout<<endl;//end of data elements
                         //line afterwards
@@ -62,7 +99,7 @@ int main() {
                     //bottom total
                     cout<<"|"<<setw(width)<<"Total"<<"|";
                     for (int i = 0; i<dcol; ++i) cout<<setw(width)<<ctots[i]<<"|"; 
-                    /*total of total*/ cout<<setw(width)<<ttot<<"|"; cout<<endl;
+                    cout<<setw(width)<<ttot<<"|"; cout<<endl;/*total of total*/
                     // line at the end
                     cout<<"+"; for (int k = 0; k<colmuns; ++k) { for (int j = 0; j<width; ++j) cout<<"-"; cout<<"+"; } cout<<endl;
                     break;
@@ -84,8 +121,36 @@ int main() {
                     break;
                 }
             case 4:
-                break;
+                {
+                    int total[nwhouse] {};
+                    int bonus[nwhouse] {};
+                    for (int i = 0; i<nday; ++i)
+                        for (int j = 0; j<nprod; ++j)
+                            for (int k = 0; k<nwhouse; ++k)
+                                total[k] += inventory[i][j][k];
 
+                    for (int i = 0; i<nwhouse; ++i) bonus[i] = total[i]*bon_rate;
+
+                    //make table
+                    char jnt = '+', hln = '-', vln = '|';
+                    int rows = 4, colmuns = 3, width = 10;
+                    cout<<left;
+                    //output first line
+                    cout<<jnt; for (int k = 0; k<colmuns; ++k) { for (int j = 0; j<width; ++j) cout<<hln; cout<<jnt; } cout<<endl;
+                    // column markers
+                    cout<<vln<<setw(width)<<""<<vln<<setw(width)<<"Total"<<vln<<setw(width)<<"Bonus"<<vln<<endl; //end of column markers
+                    cout<<jnt; for (int k = 0; k<colmuns; ++k) { for (int j = 0; j<width; ++j) cout<<hln; cout<<jnt; } cout<<endl;
+                    for (int i = 0; i<rows; ++i) {
+                        //row marker
+                        cout<<vln<<setw(width)<<salesppl[i]<<vln; //end of row marker
+                        //actual data elements
+                        cout<<setw(width)<<total[i]<<vln<<setw(width)<<bonus[i]<<vln<<endl;
+                        //end of data elements
+                        //line afterwards
+                        cout<<jnt; for (int k = 0; k<colmuns; ++k) { for (int j = 0; j<width; ++j) cout<<hln; cout<<jnt; } cout<<endl;
+                    }
+                    break;
+                }
             case 5:
                 return 0;
 
