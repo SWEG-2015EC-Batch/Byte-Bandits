@@ -23,29 +23,25 @@
       
 3. Algorithm   
 
-  1. Start
-  
-  2. Display menu with options:
+    1. Start
+    2. Display menu with options:
      - 1. Input Report
      - 2. Generate Report  
      - 3. Search
      - 4. Calculate Bonus
-     - 5. Exit
-     
-  3. If option 1: 
+     - 5. Exit  
+    3. If option 1: 
      - Repeat:
        - Get warehouse
        - Get product  
        - Get quantity
        - Store in inventory array
      - Until no more reports
-     - Increment day
-     
-  4. If option 2:
+     - Increment day  
+     4. If option 2:
      - Summarize inventory data
-     - Print inventory report table
-     
-  5. If option 3: 
+     - Print inventory report table   
+    5. If option 3: 
      - Get search type (product or salesperson)
      - If search by product:
        - Get product name
@@ -56,15 +52,12 @@
        - Get salesperson name
        - Find matching salesperson index
          - If not found print error
-         - Else print salesperson quantities table 
-         
-  6. If option 4:
+         - Else print salesperson quantities table    
+    6. If option 4:
      - Calculate total sales for each salesperson
      - Calculate bonus based on bonus rate
      - Print bonus report table
-     
-  7. If option 5:
+    7. If option 5:
      - Exit program
-     
-  8. Display menu again, repeat steps based on input until exit
-  9. End
+    8. Display menu again, repeat steps based on input until exit
+    9. End
