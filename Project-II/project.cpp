@@ -5,12 +5,16 @@ using  namespace std;
 
 int main() {
     int n;
-    cout<<"Enter a number: ";
-    cin>>n;
 
-    if (n<1) {
-        cout<<"Number too low. Try a number greater than 1.\n";
-        exit(1);
+    while (true) {
+        cout << "Enter a number (between 1 and 9): ";
+        cin >> n;
+
+        if (n >= 1 && n <= 9) {
+            break; 
+        } else {
+            cout << "Invalid input. Try a number between 1 and 9.\n";
+        }
     }
 
     for (int i = n; i>=-n; --i) {
