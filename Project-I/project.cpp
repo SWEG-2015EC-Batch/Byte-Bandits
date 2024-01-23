@@ -34,7 +34,8 @@ int main() {
              << "2. Generate Report" << endl
              << "3. Search" << endl
              << "4. Calculate Bonus" << endl
-             << "5. Exit" << endl;
+             << "5. Display Information" << endl // New option to display information
+             << "6. Exit" << endl;
         cin >> option;
         switch (option)
         {
@@ -43,11 +44,16 @@ int main() {
             char opt;
             do
             {
+                if (day >= nday) {
+                        cout << "Maximum days reached. Resetting data for a new cycle.\n";
+                        day = 0;
+                    }
                 int whouse = 0;
                 string prod;
                 int qty = 0;
 
                 cout << "Enter data\n"; cin.clear();
+                cout << "Day " << day + 1 << endl;
                 cout << "Warehouse (1-4): ";
                 cin >> whouse; cin.clear();
                 cout << "Product ("; for (auto prodct: products) cout<<prodct<<"/"; cout<<"): ";
@@ -188,7 +194,7 @@ int main() {
                     }
                     cout << endl;
                     //
-                    int ctots[dcol] = {}, ttot = {0};
+                    int ttot = {0};
                     for (int i = 0; i < drow; ++i) {
                         // row marker
                         cout << vln << setw(width) << i + 1 << vln; // end of row marker
@@ -197,7 +203,6 @@ int main() {
                         for (int j = 0; j < dcol; ++j) {
                             cout << setw(width) << inventory[i][prodIndex][j] << vln;
                             rtot += inventory[i][prodIndex][j];
-                            ctots[j] = inventory[i][prodIndex][j];
                         }
                         ttot += rtot;
                         cout << setw(width) << rtot << vln;
@@ -323,7 +328,19 @@ int main() {
             }
             break;
         }
-        case 5:
+         case 5:
+                {// Option to display information
+                cout << "\nCurrent Information:\n";
+                cout << "---------------------\n";
+                cout << "Day: " << day + 1 << "\n";
+                cout << "Products: ";
+                for (const auto& prod : products) cout << prod << " ";
+                cout << "\nSalespersons: ";
+                for (const auto& person : salesppl) cout << person << " ";
+                cout << "\n---------------------\n";
+                break;
+                }
+        case 6:
             return 0;
 
         default:
