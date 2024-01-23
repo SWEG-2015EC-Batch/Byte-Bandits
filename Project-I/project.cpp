@@ -188,7 +188,7 @@ int main() {
                     }
                     cout << endl;
                     //
-                    int ctots[dcol] = {}, ttot = {0};
+                    int ttot = {0};
                     for (int i = 0; i < drow; ++i) {
                         // row marker
                         cout << vln << setw(width) << i + 1 << vln; // end of row marker
@@ -197,7 +197,6 @@ int main() {
                         for (int j = 0; j < dcol; ++j) {
                             cout << setw(width) << inventory[i][prodIndex][j] << vln;
                             rtot += inventory[i][prodIndex][j];
-                            ctots[j] = inventory[i][prodIndex][j];
                         }
                         ttot += rtot;
                         cout << setw(width) << rtot << vln;
