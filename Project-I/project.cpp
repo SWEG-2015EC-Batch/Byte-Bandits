@@ -48,6 +48,7 @@ int main() {
                 int qty = 0;
 
                 cout << "Enter data\n"; cin.clear();
+                cout << "Day " << day + 1 << endl;
                 cout << "Warehouse (1-4): ";
                 cin >> whouse; cin.clear();
                 cout << "Product ("; for (auto prodct: products) cout<<prodct<<"/"; cout<<"): ";
