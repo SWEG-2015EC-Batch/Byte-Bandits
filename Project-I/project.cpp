@@ -43,6 +43,10 @@ int main() {
             char opt;
             do
             {
+                if (day >= nday) {
+                        cout << "Maximum days reached. Resetting data for a new cycle.\n";
+                        day = 0;
+                    }
                 int whouse = 0;
                 string prod;
                 int qty = 0;
