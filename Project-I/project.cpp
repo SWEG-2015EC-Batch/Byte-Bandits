@@ -34,7 +34,8 @@ int main() {
              << "2. Generate Report" << endl
              << "3. Search" << endl
              << "4. Calculate Bonus" << endl
-             << "5. Exit" << endl;
+             << "5. Display Information" << endl // New option to display information
+             << "6. Exit" << endl;
         cin >> option;
         switch (option)
         {
@@ -323,7 +324,19 @@ int main() {
             }
             break;
         }
-        case 5:
+         case 5:
+                {// Option to display information
+                cout << "\nCurrent Information:\n";
+                cout << "---------------------\n";
+                cout << "Day: " << day + 1 << "\n";
+                cout << "Products: ";
+                for (const auto& prod : products) cout << prod << " ";
+                cout << "\nSalespersons: ";
+                for (const auto& person : salesppl) cout << person << " ";
+                cout << "\n---------------------\n";
+                break;
+                }
+        case 6:
             return 0;
 
         default:
