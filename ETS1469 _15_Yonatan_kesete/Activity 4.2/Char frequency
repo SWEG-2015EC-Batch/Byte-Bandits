@@ -1,0 +1,32 @@
+#include<iostream>
+#include<string>
+using namespace std;
+int main(){
+      string input;
+    cout << "Enter a string: ";
+    getline(std::cin, input);
+      int count[256]={0};
+      for(char ch:input){
+            if(isalpha(ch)){
+                  int index=tolower(ch)-'a';
+                  count[index]++;
+            }
+      }
+    char maxChar = '\0';
+    char minChar = '\0';
+    int maxFreq = 0;
+    int minFreq = input.length();
+   for(int i=0;i<256;i++){
+      if(count[i]>maxFreq){
+            maxFreq=count[i];
+            maxChar='a'+i;
+      }
+     if(count[i]<minFreq&&count[i]>0){
+            minFreq=count[i];
+            minChar='a'+i; 
+   }
+ }  
+   cout << "Character with the largest frequency: " << maxChar << " (Frequency: " << maxFreq << ")" <<endl;
+    cout << "Character with the smallest frequency: " << minChar << " (Frequency: " << minFreq << ")";
+   
+}
