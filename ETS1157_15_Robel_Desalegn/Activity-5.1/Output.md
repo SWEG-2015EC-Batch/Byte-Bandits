@@ -1,5 +1,12 @@
 Output #1
-
+1               0x16b38b174
+0x16b38b160     0x0
+0x16b38b1a4     0x16b38b1a4
+0x16b38b1ac     0x16b38b168
+1               0x16b38b174
+0x0             0x16b38b160
+0x16b38b1a4     0x16b38b1a4
+0x16b38b178     0x16b38b168
 
 
 Output #2
@@ -13,6 +20,15 @@ Output #3
 - k = 28
 
 Output #4
+i       j       ptr         pptr
+5       10      0x37129    garbage
+5       10      0x37129    0x1fc825
+3       10      0x37129    0x1fc825
+7       10      0x37129    0x1fc825
+7       10      0x5863a    0x1fc825
+7       9       0x5863a    0x1fc825
+7       9       0x37129    0x1fc825
+-2      9       0x37129    0x1fc825
 Output #5
 
 Output #6
