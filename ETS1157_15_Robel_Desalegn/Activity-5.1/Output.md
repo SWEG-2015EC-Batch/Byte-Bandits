@@ -1,4 +1,4 @@
-###Output #1
+### Output #1
 
 - 1----------------0x16b38b174
 - 0x16b38b160------0x0
@@ -10,10 +10,10 @@
 - 0x16b38b178------0x16b38b168
 
 
-###Output #2
+### Output #2
 - 58 58 58
 
-###Output #3
+### Output #3
 - K = 4
 - X = 950 
 - Y = 3000
@@ -30,30 +30,39 @@
 - 7-------9---------0x5863a--------0x1fc825
 - 7-------9 --------0x37129--------0x1fc825
 - -2------9 --------0x37129--------0x1fc825
-###Output #5
 
-###Output #6
+### Output #5
+(Assuming address of i is 0x900000)
+- 5 0x900004
+- 5 0x900004
+- [garbage] 0x900004
+- [garbage] 0x900004
+- 6 0x900000
+- 6 0x900000
+- 5 0x900000
+
+### Output #6
 - a[0]= 6.0
 - a[1] = 3.0
-- a[2] = garbage
+- a[2] = [garbage]
 - a[3] = 9.8
 - a[4] = 7.0
 
-###Output #7
+### Output #7
 
 - a[0]= 6.0
 - a[1] = 3.0
-- a[2] = garbage
+- a[2] = [garbage]
 - a[3] = 9.8
 - a[4] = 7.0
 
-###Output #8
+### Output #8
 
 - 30 becomes 60
 - 23 becomes 30
 - 32 becomes 40
 
-Analysis
+### Analysis
 + p1 is normal integer pointer
 + p2 is pointer to integer constant
 + p3 is constant pointer to integer
