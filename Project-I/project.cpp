@@ -48,7 +48,7 @@ int main()
             {
                 if (day >= nday)
                 {
-                    cout << "Maximum days reached. Resetting data for a new cycle.\n";
+                    cout << "Maximum days reached! Resetting data for a new cycle.\n";
                     day = 0;
                 }
                 int whouse = 0;
@@ -81,8 +81,7 @@ int main()
                 // not found
                 if (prindx == -1)
                 {
-                    cout << "\033[1;31mNo product found\033[0m";
-                    cout << "please choose product accordingly: " << endl;
+                    cout << "\n\033[1;31mNo product found! Please choose valid product name!\033[0m\n";
                     goto goHere;
                 }
 
@@ -129,8 +128,7 @@ int main()
             cout << setw(width) << "Total" << vln << endl; // end of column markers
             //
             cout << jnt;
-            for (int k = 0; k < colmuns; ++k)
-            {
+            for (int k = 0; k < colmuns; ++k) {
                 for (int j = 0; j < width; ++j)
                     cout << hln;
                 cout << jnt;
@@ -138,8 +136,7 @@ int main()
             cout << endl;
             //
             int ctots[dcol] = {}, ttot = {0};
-            for (int i = 0; i < drow; ++i)
-            {
+            for (int i = 0; i < drow; ++i) {
                 // row marker
                 cout << vln << setw(width) << products[i] << vln; // end of row marker
                 // actual data elements
@@ -155,8 +152,7 @@ int main()
                 cout << setw(width) << rtot << vln << endl;
                 // line afterwards
                 cout << jnt;
-                for (int k = 0; k < colmuns; ++k)
-                {
+                for (int k = 0; k < colmuns; ++k) {
                     for (int j = 0; j < width; ++j)
                         cout << hln;
                     cout << jnt;
@@ -170,8 +166,7 @@ int main()
             cout << setw(width) << ttot << vln << endl; /*total of total*/
             // line at the end
             cout << jnt;
-            for (int k = 0; k < colmuns; ++k)
-            {
+            for (int k = 0; k < colmuns; ++k) {
                 for (int j = 0; j < width; ++j)
                     cout << hln;
                 cout << jnt;
@@ -196,17 +191,15 @@ int main()
                 cin.clear();
                 cin >> productName;
                 int prodIndex = -1;
-                for (int i = 0; i < nprod; ++i)
-                {
+                for (int i = 0; i < nprod; ++i) {
                     if (!strncasecmp(products[i].c_str(), productName.c_str(), min(products[i].size(), productName.size())))
                     {
                         prodIndex = i;
                         break;
                     }
                 }
-                if (prodIndex == -1)
-                {
-                    cout << "\033[1;31mNo product found\033[0m";
+                if (prodIndex == -1) {
+                    cout << "\n\033[1;31mNo product found!\033[0m\n";
                     break;
                 }
 
@@ -215,8 +208,7 @@ int main()
                 cout << left;
                 // output first line
                 cout << jnt;
-                for (int k = 0; k < colmuns; ++k)
-                {
+                for (int k = 0; k < colmuns; ++k) {
                     for (int j = 0; j < width; ++j)
                         cout << hln;
                     cout << jnt;
@@ -282,7 +274,7 @@ int main()
                 }
                 if (prodIndex == -1)
                 {
-                    cout << "\033[1;31mNo salesperson found\033[0m";
+                    cout << "\n\033[1;31mNo salesperson found!\033[0m\n";
                     break;
                 }
 
