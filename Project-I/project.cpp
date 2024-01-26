@@ -20,7 +20,7 @@ int main() {
     const char jnt = '+', hln = '-', vln = '|';//table drawring characters
     int inventory[nday][nprod][nwhouse] = {};
     string products[nprod] {"Mobile", "Computer", "Disk", "Charger", "Cable"}; //case insensitive
-    string salesppl[nwhouse] {"Paulos", "Yonatan", "Zerubabel", "Robel"};//case insensitive
+    string salesppl[nwhouse] {"Paulos", "Yonatan", "Zerubbabel", "Robel"};//case insensitiveccccc55656666666
     int day = 0;
 
    cout << "========================\n"
@@ -123,7 +123,7 @@ int main() {
                 for (int j = 0; j < dcol; ++j) {
                     cout << setw(width) << report[i][j] << vln;
                     rtot += report[i][j];
-                    ctots[j] = report[i][j];
+                    ctots[j] += report[i][j];
                 } // end of data elements
                 //total at the end
                 ttot += rtot;
@@ -225,7 +225,7 @@ int main() {
                     // Find index of salesperon
                     int prodIndex = -1;
                     for (int i = 0; i < nprod; ++i) {
-                        if (! strncasecmp(products[i].c_str(), salesPn.c_str(), min(products[i].size(), salesPn.size())))
+                        if (! strncasecmp(salesppl[i].c_str(), salesPn.c_str(), min(salesppl[i].size(), salesPn.size())))
                         {
                             prodIndex = i;
                             break;
@@ -286,7 +286,7 @@ int main() {
         }
         case 4: {
             int total[nwhouse] = {};
-            int bonus[nwhouse] = {};
+            float bonus[nwhouse] = {};
             for (int i = 0; i < nday; ++i)
                 for (int j = 0; j < nprod; ++j)
                     for (int k = 0; k < nwhouse; ++k)
@@ -348,4 +348,5 @@ int main() {
             break;
         }
     }
+    return 0;
 }
