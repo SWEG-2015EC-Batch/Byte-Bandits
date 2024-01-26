@@ -361,7 +361,6 @@ int main()
             {
                 break;
             }
-            break;
             default:
                 std::cout << "Invalid option!";
                 break;
@@ -422,6 +421,7 @@ int main()
         }
         case 5:
         { // Option to display information
+        
             cout << "\nCurrent Information:\n";
             cout << "---------------------\n";
             cout << "Day: " << day + 1 << "\n";
