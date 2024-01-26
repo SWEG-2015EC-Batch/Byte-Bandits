@@ -71,6 +71,11 @@ int main()
                 cout << "Warehouse (1-4): ";
                 cin >> whouse;
                 cin.clear();
+
+                while(whouse < 1 || whouse > 4) {
+                cout << "\n\033[1;31mInvalid warehouse!\033[0m\n" <<  "please enter 1-4: ";
+                cin >> whouse;
+                }
             goHere:
                 cout << "Product (";
                 for (auto prodct : products)
@@ -98,12 +103,16 @@ int main()
                 cout << "Quantity: ";
                 cin >> qty;
                 cin.clear();
+                while(qty < 0) {
+                    cout << "\n\033[1;31mInvalid quantity!\033[0m\n" <<  "please enter a positive number: ";
+                    cin >> qty;
+                    }
 
                 inventory[day][prindx][whouse - 1] = qty;
                 ++count;
                 if (count == maxrep)
                     break; // done with todays reports
-                cout << "Done with today's report? (y/N): ";
+                cout << "Done with today's report? (Y/N): ";
                 cin >> opt;
                 cin.clear();
             } while ((opt != 'y' && opt != 'Y'));
