@@ -20,7 +20,7 @@ int main() {
     const char jnt = '+', hln = '-', vln = '|';//table drawring characters
     int inventory[nday][nprod][nwhouse] = {};
     string products[nprod] {"Mobile", "Computer", "Disk", "Charger", "Cable"}; //case insensitive
-    string salesppl[nwhouse] {"Paulos", "Yonatan", "Zerubabel", "Robel"};//case insensitive
+    string salesppl[nwhouse] {"Paulos", "Yonatan", "Zerubbabel", "Robel"};//case insensitiveccccc55656666666
     int day = 0;
 
    cout << "========================\n"
@@ -34,7 +34,8 @@ int main() {
              << "2. Generate Report" << endl
              << "3. Search" << endl
              << "4. Calculate Bonus" << endl
-             << "5. Exit" << endl;
+             << "5. Display Information" << endl // New option to display information
+             << "6. Exit" << endl;
         cin >> option;
         switch (option)
         {
@@ -43,11 +44,16 @@ int main() {
             char opt;
             do
             {
+                if (day >= nday) {
+                        cout << "Maximum days reached. Resetting data for a new cycle.\n";
+                        day = 0;
+                    }
                 int whouse = 0;
                 string prod;
                 int qty = 0;
 
                 cout << "Enter data\n"; cin.clear();
+                cout << "Day " << day + 1 << endl;
                 cout << "Warehouse (1-4): ";
                 cin >> whouse; cin.clear();
                 cout << "Product ("; for (auto prodct: products) cout<<prodct<<"/"; cout<<"): ";
@@ -117,7 +123,7 @@ int main() {
                 for (int j = 0; j < dcol; ++j) {
                     cout << setw(width) << report[i][j] << vln;
                     rtot += report[i][j];
-                    ctots[j] = report[i][j];
+                    ctots[j] += report[i][j];
                 } // end of data elements
                 //total at the end
                 ttot += rtot;
@@ -219,7 +225,7 @@ int main() {
                     // Find index of salesperon
                     int prodIndex = -1;
                     for (int i = 0; i < nprod; ++i) {
-                        if (! strncasecmp(products[i].c_str(), salesPn.c_str(), min(products[i].size(), salesPn.size())))
+                        if (! strncasecmp(salesppl[i].c_str(), salesPn.c_str(), min(salesppl[i].size(), salesPn.size())))
                         {
                             prodIndex = i;
                             break;
@@ -280,7 +286,7 @@ int main() {
         }
         case 4: {
             int total[nwhouse] = {};
-            int bonus[nwhouse] = {};
+            float bonus[nwhouse] = {};
             for (int i = 0; i < nday; ++i)
                 for (int j = 0; j < nprod; ++j)
                     for (int k = 0; k < nwhouse; ++k)
@@ -322,7 +328,19 @@ int main() {
             }
             break;
         }
-        case 5:
+         case 5:
+                {// Option to display information
+                cout << "\nCurrent Information:\n";
+                cout << "---------------------\n";
+                cout << "Day: " << day + 1 << "\n";
+                cout << "Products: ";
+                for (const auto& prod : products) cout << prod << " ";
+                cout << "\nSalespersons: ";
+                for (const auto& person : salesppl) cout << person << " ";
+                cout << "\n---------------------\n";
+                break;
+                }
+        case 6:
             return 0;
 
         default:
@@ -330,4 +348,5 @@ int main() {
             break;
         }
     }
+    return 0;
 }
