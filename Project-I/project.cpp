@@ -10,7 +10,6 @@
 #include <cstring>
 #include <algorithm>
 #include <iomanip>
-#include <cctype>
 
 using namespace std;
 
@@ -18,15 +17,26 @@ int main()
 {
     const int nday = 30, nprod = 5, nwhouse = 4, maxrep = 5;
     const float bon_rate = 0.05;
-    const char jnt = '+', hln = '-', vln = '|'; // table drawring characters
+    const char jnt = '+', hln = '-', vln = '|'; // table drawing characters
     int inventory[nday][nprod][nwhouse] = {};
     string products[nprod]{"Mobile", "Computer", "Disk", "Charger", "Cable"}; // case insensitive
-    string salesppl[nwhouse]{"Paulos", "Yonatan", "Zerubabel", "Robel"};      // case insensitive
+    string salesppl[nwhouse]{"Paulos", "Yonatan", "Zerubabbel", "Robel"};      // case insensitive
     int day = 0;
 
-    cout << "========================\n"
+    string welcomeMessage = "I N V E N T O R Y     M A N A G E M E N T     S Y S T E M";
+
+    cout << "\v\v";
+    cout << setw(40) << " ";
+    cout << "<==============================================================>\n";
+    cout << setw(40) << " ";
+    cout << "*   " << welcomeMessage << " *\n";
+    cout << setw(40) << " ";
+    cout << "<==============================================================>\n\v";
+    cout << endl;
+
+    cout << "<========================>\n"
          << right << setw(15) << "WELCOME!"
-         << "\n========================\n\n";
+         << "\n<========================>\n\n";
     while (true)
     {
         int option;
@@ -93,10 +103,10 @@ int main()
                 ++count;
                 if (count == maxrep)
                     break; // done with todays reports
-                cout << "Done? (y/N): ";
+                cout << "Done with today's report? (y/N): ";
                 cin >> opt;
                 cin.clear();
-            } while (tolower(opt != 'y'));
+            } while ((opt != 'y' && opt != 'Y'));
 
             ++day;
             break;
@@ -109,8 +119,12 @@ int main()
                 for (int j = 0; j < nprod; ++j)
                     for (int k = 0; k < nwhouse; ++k)
                         report[j][k] += inventory[i][j][k];
+            
+            cout << "========================\n"
+         << right << setw(15) << "Report"
+         << "\n========================\n\n";
             // print table
-            int rows = 5, colmuns = 6, width = 10;
+            int colmuns = 6, width = 10;
             cout << left;
             // output first line
             cout << jnt;
@@ -179,6 +193,7 @@ int main()
             cout << "Search by:" << endl;
             cout << "1. Product" << endl;
             cout << "2. Salesperson" << endl;
+            cout << "3. back to Menu" << endl;
 
             int searchOption;
             cin >> searchOption;
@@ -204,7 +219,7 @@ int main()
                 }
 
                 const int drow = nday, dcol = nwhouse;
-                int rows = drow, colmuns = dcol + 2, width = 10;
+                int colmuns = dcol + 2, width = 10;
                 cout << left;
                 // output first line
                 cout << jnt;
@@ -279,7 +294,7 @@ int main()
                 }
 
                 const int drow = nday, dcol = nprod;
-                int rows = drow, colmuns = dcol + 2, width = 10;
+                int colmuns = dcol + 2, width = 10;
                 cout << left;
                 // draw first line
                 cout << jnt;
@@ -305,7 +320,7 @@ int main()
                 }
                 cout << endl;
                 //
-                int ctots[dcol] = {}, ttot = {0};
+                int ttot = {0};
                 for (int i = 0; i < drow; ++i)
                 {
                     // row marker
@@ -332,6 +347,11 @@ int main()
                 }
                 break;
             }
+            case 3:
+            {
+                break;
+            }
+            break;
             default:
                 std::cout << "Invalid option!";
                 break;
@@ -412,5 +432,4 @@ int main()
             break;
         }
     }
-    return 0;
 }
