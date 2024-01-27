@@ -23,28 +23,29 @@
 
 3. Algorithm
 
-   1. Display welcome message
-   2. Show menu options:
+   1. Start
+   2. Display welcome message
+   3. Show menu options:
       1. Input report  
       2. Generate report
       3. Search inventory
       4. Display current information
       5. Exit program
-   3. If input report selected:
+   4. If input report selected:
       - Prompt for warehouse
       - Prompt for product 
       - Input quantity
       - Save input report in inventory array
-   4. If generate report:
+   5. If generate report:
       - Calculate inventory totals
       - Print inventory report
-   5. If search inventory:
+   6. If search inventory:
       - Get search criteria  
       - Find matching inventory
       - Print search results
-   6. If display current information:
+   7. If display current information:
       - Print info on current state
-   7. If exit:
+   8. If exit:
       - End program
-   8. Go back to menu after each option until exit
-   9. End
+   9. Go back to menu after each option until exit
+   10. End
