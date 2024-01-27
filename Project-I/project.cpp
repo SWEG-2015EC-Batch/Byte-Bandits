@@ -17,7 +17,7 @@ using namespace std;
 
 int main()
 {
-    const int nday = 30, nprod = 5, nwhouse = 4, maxrep = 5;
+    const int nday = 30, nprod = 5, nwhouse = 4;
     const float bon_rate = 0.05;
     const char jnt = '+', hln = '-', vln = '|'; // table drawing characters
     int inventory[nday][nprod][nwhouse] = {};
@@ -47,7 +47,7 @@ int main()
              << "1. Input Report" <<" (Day "<<(day%30)+1<<")"<< endl
              << "2. Generate Report" << endl
              << "3. Search" << endl
-             << "4. Display Information" << endl // New option to display information
+             << "4. Display Information" << endl 
              << "5. Exit" << endl;
         cin >> option;
         switch (option)
@@ -67,7 +67,7 @@ int main()
                 // somehow getline reads newline character from inputline
                 // the following clears it.
                 string throwaway;
-                getline(cin, throwaway, '\n'); // not ideal solution
+                getline(cin, throwaway, '\n');
                 for (int i = 0; i<nwhouse; ++i){
                     string ch;
                     cout<<"Warehouse "<<i+1<<"? (y/N): ";
@@ -82,12 +82,13 @@ int main()
                         cout << products[j]<<": ";
                         getline(cin, prodq, '\n');
                         if(prodq.empty()) continue;
-                        // TODO
-                        // what about invalid character inputs? like letters?
-                        while (isalpha(prodq[0])) {
+                        for (int i = 0; i < prodq.length(); i++){
+                        while (isalpha(prodq[i])) {
                             cout << "\n\033[1;31mInvalid input! Please enter a number!\033[0m\n" << std::endl; 
                             cout << products[j]<<": ";
                             getline(cin, prodq, '\n');
+                            break;
+                        }
                         }
                         int qty = atoi(prodq.c_str());
                         if (qty < 0 ) {
@@ -101,7 +102,7 @@ int main()
                 cout << "\nDone for the day! Continue? (Y/N): ";
                 cin >> opt;
                 cin.clear();
-                if (day == nday) { cout<<"All done!"; break; }// done this months reports
+                if (day == nday) { cout<<"All done!"; break; }// done this month's reports
             } while (tolower(opt) == 'y');
 
             break;
@@ -209,7 +210,9 @@ int main()
             int searchOption;
             cin >> searchOption;
             if (searchOption == 3) break; // Exit by choice
-            switch (searchOption) { case 1: { string productName; cout << "Enter product name to search: "; cin.clear(); cin >> productName;
+            switch (searchOption) { 
+                case 1: 
+                { string productName; cout << "Enter product name to search: "; cin.clear(); cin >> productName;
                 int prodIndex = -1;
                 for (int i = 0; i < nprod; ++i) {
                     if (!strncasecmp(products[i].c_str(), productName.c_str(), min(products[i].size(), productName.size())))
