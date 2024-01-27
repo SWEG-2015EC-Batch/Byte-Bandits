@@ -84,9 +84,13 @@ int main()
                         if(prodq.empty()) continue;
                         // TODO
                         // what about invalid character inputs? like letters?
-
+                        while (isalpha(prodq[0])) {
+                            cout << "\n\033[1;31mInvalid input! Please enter a number!\033[0m\n" << std::endl; 
+                            cout << products[j]<<": ";
+                            getline(cin, prodq, '\n');
+                        }
                         int qty = atoi(prodq.c_str());
-                        if (qty < 0) {
+                        if (qty < 0 ) {
                             cout << "\n\033[1;31mInvalid quantity! Please enter a positive number!\033[0m\n\n";
                             goto ReRead;
                         }
