@@ -45,9 +45,8 @@ int main()
              << "1. Input Report" << endl
              << "2. Generate Report" << endl
              << "3. Search" << endl
-             << "4. Calculate Bonus" << endl
-             << "5. Display Information" << endl // New option to display information
-             << "6. Exit" << endl;
+             << "4. Display Information" << endl // New option to display information
+             << "5. Exit" << endl;
         cin >> option;
         switch (option)
         {
@@ -68,7 +67,7 @@ int main()
 
                 cout << "Enter data\n";
                 cin.clear();
-                cout << "Day " << day + 1 << endl;
+                cout << "\033[32m" << "Day " << day + 1 << "\033[0m" << endl;
                 cout << "Warehouse (1-4): ";
                 cin >> whouse;
                 cin.clear();
@@ -112,12 +111,11 @@ int main()
                 inventory[day][prindx][whouse - 1] = qty;
                 ++count;
                 if (count == maxrep)
-                    break; // done with todays reports
+                    break; // done with today's reports
                 cout << "Done with today's report? (Y/N): ";
                 cin >> opt;
                 cin.clear();
             } while ((opt != 'y' && opt != 'Y'));
-
             ++day;
             break;
         }
@@ -129,7 +127,6 @@ int main()
                 for (int j = 0; j < nprod; ++j)
                     for (int k = 0; k < nwhouse; ++k)
                         report[j][k] += inventory[i][j][k];
-            
             cout << "========================\n"
          << right << setw(15) << "Report"
          << "\n========================\n\n";
@@ -183,11 +180,33 @@ int main()
                 }
                 cout << endl;
             }
+            float bonus[nwhouse];
+            float bonustot;
+                for(int i = 0; i < nwhouse; i++) {
+                bonus[i] = ctots[i] * bon_rate;
+                }
+            for (int i = 0; i < nwhouse; i++){
+                bonustot += bonus[i];
+            }
             // bottom total
             cout << vln << setw(width) << "Total" << vln;
             for (int i = 0; i < dcol; ++i)
                 cout << setw(width) << ctots[i] << vln;
-            cout << setw(width) << ttot << vln << endl; /*total of total*/
+            cout << setw(width) << ttot << vln << endl; 
+            /*total of total*/
+             // line afterwards
+                cout << jnt;
+                for (int k = 0; k < colmuns; ++k) {
+                    for (int j = 0; j < width; ++j)
+                        cout << hln;
+                    cout << jnt;
+                }
+                cout << endl;
+                // bonus 
+            cout << vln << setw(width) << "Bonus" << vln;
+            for (int i = 0; i < dcol; ++i)
+                cout << setw(width) << bonus[i] << vln;
+            cout << setw(width) << bonustot << vln << endl; 
             // line at the end
             cout << jnt;
             for (int k = 0; k < colmuns; ++k) {
@@ -357,10 +376,9 @@ int main()
                 }
                 break;
             }
-            case 3:
-            {
-                break;
-            }
+            case 3:{    
+                break; 
+                }
             default:
                 std::cout << "Invalid option!";
                 break;
@@ -368,60 +386,7 @@ int main()
             break;
         }
         case 4:
-        {
-            int total[nwhouse] = {};
-            float bonus[nwhouse] = {};
-            for (int i = 0; i < nday; ++i)
-                for (int j = 0; j < nprod; ++j)
-                    for (int k = 0; k < nwhouse; ++k)
-                        total[k] += inventory[i][j][k];
-
-            for (int i = 0; i < nwhouse; ++i)
-                bonus[i] = total[i] * bon_rate;
-
-            // make table
-            int rows = nwhouse, colmuns = 3, width = 10;
-            cout << left;
-            // output first line
-            cout << jnt;
-            for (int k = 0; k < colmuns; ++k)
-            {
-                for (int j = 0; j < width; ++j)
-                    cout << hln;
-                cout << jnt;
-            }
-            cout << endl;
-            // column markers
-            cout << vln << setw(width) << "" << vln << setw(width) << "Total" << vln << setw(width) << "Bonus" << vln << endl; // end of column markers
-            cout << jnt;
-            for (int k = 0; k < colmuns; ++k)
-            {
-                for (int j = 0; j < width; ++j)
-                    cout << hln;
-                cout << jnt;
-            }
-            cout << endl;
-            for (int i = 0; i < rows; ++i)
-            {
-                // row marker
-                cout << vln << setw(width) << salesppl[i] << vln; // end of row marker
-                // actual data elements
-                cout << setw(width) << total[i] << vln << setw(width) << bonus[i] << vln << endl; // end of data elements
-                // line afterwards
-                cout << jnt;
-                for (int k = 0; k < colmuns; ++k)
-                {
-                    for (int j = 0; j < width; ++j)
-                        cout << hln;
-                    cout << jnt;
-                }
-                cout << endl;
-            }
-            break;
-        }
-        case 5:
         { // Option to display information
-        
             cout << "\nCurrent Information:\n";
             cout << "---------------------\n";
             cout << "Day: " << day + 1 << "\n";
@@ -434,9 +399,8 @@ int main()
             cout << "\n---------------------\n";
             break;
         }
-        case 6:
+        case 5:
             return 0;
-
         default:
             cout << "Invalid option. Please choose a valid option." << endl;
             break;
