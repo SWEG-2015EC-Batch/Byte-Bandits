@@ -58,7 +58,7 @@ int main()
                 cout << "Maximum days reached! Resetting data for a new cycle.\n";
                 day = 0;
             }
-            cout << "Enter data\n";
+            cout << "Enter Reports. (Hit ENTER to skip any empty fields!)\n";
             char opt;
             do
             {
@@ -78,17 +78,17 @@ int main()
 
                     for (int j = 0; j<nprod; ++j) {
                         string prodq;
+                    ReRead:
                         cout << products[j]<<": ";
-                        cin.clear();
                         getline(cin, prodq, '\n');
                         if(prodq.empty()) continue;
                         // TODO
-                        // what about character inputs? like letters?
+                        // what about invalid character inputs? like letters?
 
                         int qty = atoi(prodq.c_str());
-                        while(qty < 0) {
-                            cout << "\n\033[1;31mInvalid quantity!\033[0m\n" <<  "please enter a positive number: ";
-                            cin >> qty;
+                        if (qty < 0) {
+                            cout << "\n\033[1;31mInvalid quantity! Please enter a positive number!\033[0m\n\n";
+                            goto ReRead;
                         }
                         inventory[day][j][i] = qty;
                     }
