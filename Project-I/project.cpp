@@ -47,7 +47,7 @@ int main()
              << "1. Input Report" <<" (Day "<<(day%30)+1<<")"<< endl
              << "2. Generate Report" << endl
              << "3. Search" << endl
-             << "4. Display Information" << endl 
+             << "4. Display Information" << endl
              << "5. Exit" << endl;
         cin >> option;
         switch (option)
@@ -58,7 +58,7 @@ int main()
                 cout << "Maximum days reached! Resetting data for a new cycle.\n";
                 day = 0;
             }
-            cout << "Enter Reports. (Hit ENTER to skip any empty fields!)\n";
+            cout << "Enter Reports. (Hit ENTER to skip any empty fields)\n";
             char opt;
             do
             {
@@ -71,7 +71,6 @@ int main()
                 for (int i = 0; i<nwhouse; ++i){
                     string ch;
                     cout<<"Warehouse "<<i+1<<"? (y/N): ";
-                    cin.clear();
                     getline(cin, ch, '\n');
 
                     if (ch.empty() || tolower(ch[0]) != 'y') continue;
@@ -99,10 +98,10 @@ int main()
                     }
                 }
                 ++day;
-                cout << "\nDone for the day! Continue? (Y/N): ";
+                cout << "\nDone for the day! Continue? (y/n): ";
                 cin >> opt;
                 cin.clear();
-                if (day == nday) { cout<<"All done!"; break; }// done this month's reports
+                if (day == nday) { cout<<"All done!"; break; }// done with this months reports
             } while (tolower(opt) == 'y');
 
             break;
@@ -210,75 +209,71 @@ int main()
             int searchOption;
             cin >> searchOption;
             if (searchOption == 3) break; // Exit by choice
-            switch (searchOption) { 
-                case 1: 
-                { string productName; cout << "Enter product name to search: "; cin.clear(); cin >> productName;
-                int prodIndex = -1;
-                for (int i = 0; i < nprod; ++i) {
-                    if (!strncasecmp(products[i].c_str(), productName.c_str(), min(products[i].size(), productName.size())))
-                    {
-                        prodIndex = i;
-                        break;
+            switch (searchOption) {
+                case 1:
+                {
+                    string productName; cout << "Enter product name to search: "; cin.clear(); cin >> productName;
+                    int prodIndex = -1;
+                    for (int i = 0; i < nprod; ++i) {
+                        if (!strncasecmp(products[i].c_str(), productName.c_str(), min(products[i].size(), productName.size())))
+                        {
+                            prodIndex = i;
+                            break;
+                        }
                     }
-                }
-                if (prodIndex == -1) {
-                    cout << "\n\033[1;31mNo product found!\033[0m\n\n";
-                    goto SearchChoice;
-                }
+                    if (prodIndex == -1) {
+                        cout << "\n\033[1;31mNo product found!\033[0m\n\n";
+                        goto SearchChoice;
+                    }
 
-                const int drow = nday, dcol = nwhouse;
-                int colmuns = dcol + 2, width = 10;
-                cout << left;
-                // output first line
-                cout << jnt;
-                for (int k = 0; k < colmuns; ++k) {
-                    for (int j = 0; j < width; ++j)
-                        cout << hln;
+                    const int drow = nday, dcol = nwhouse;
+                    int colmuns = dcol + 2, width = 10;
+                    cout << left;
+                    // output first line
                     cout << jnt;
-                }
-                cout << endl;
-                // column markers
-                cout << vln << setw(width) << " " << vln;
-                for (int i = 0; i < dcol; ++i)
-                    cout << setw(width) << salesppl[i] << vln;
-                cout << setw(width) << "Total" << vln << endl;
-                //
-                cout << jnt;
-                for (int k = 0; k < colmuns; ++k)
-                {
-                    for (int j = 0; j < width; ++j)
-                        cout << hln;
-                    cout << jnt;
-                }
-                cout << endl;
-                //
-                int ttot = {0};
-                for (int i = 0; i < drow; ++i)
-                {
-                    // row marker
-                    cout << vln << setw(width) << i + 1 << vln; // end of row marker
-                    // actual data elements
-                    int rtot = 0;
-                    for (int j = 0; j < dcol; ++j)
-                    {
-                        cout << setw(width) << inventory[i][prodIndex][j] << vln;
-                        rtot += inventory[i][prodIndex][j];
-                    }
-                    ttot += rtot;
-                    cout << setw(width) << rtot << vln;
-                    cout << endl; // end of data elements
-                    // line afterwards
-                    cout << jnt;
-                    for (int k = 0; k < colmuns; ++k)
-                    {
+                    for (int k = 0; k < colmuns; ++k) {
                         for (int j = 0; j < width; ++j)
                             cout << hln;
                         cout << jnt;
                     }
                     cout << endl;
-                }
+                    // column markers
+                    cout << vln << setw(width) << " " << vln;
+                    for (int i = 0; i < dcol; ++i)
+                        cout << setw(width) << salesppl[i] << vln;
+                    cout << setw(width) << "Total" << vln << endl;
+                    //
+                    cout << jnt;
+                    for (int k = 0; k < colmuns; ++k) {
+                        for (int j = 0; j < width; ++j) cout << hln;
+                        cout << jnt;
+                    }
+                    cout << endl;
+                    //
+                    int ttot = {0};
+                    for (int i = 0; i < drow; ++i) {
+                        // row marker
+                        cout << vln << setw(width) << i + 1 << vln; // end of row marker
+                        // actual data elements
+                        int rtot = 0;
+                        for (int j = 0; j < dcol; ++j) {
+                            cout << setw(width) << inventory[i][prodIndex][j] << vln;
+                            rtot += inventory[i][prodIndex][j];
+                        }
+                        ttot += rtot;
+                        cout << setw(width) << rtot << vln;
+                        cout << endl; // end of data elements
+                        // line afterwards
+                        cout << jnt;
+                        for (int k = 0; k < colmuns; ++k) {
+                            for (int j = 0; j < width; ++j)
+                                cout << hln;
+                            cout << jnt;
+                        }
+                        cout << endl;
+                    }
                 break;
-            }
+                }
             case 2:
             {
                 string salesPn;
@@ -287,16 +282,13 @@ int main()
                 cin >> salesPn;
                 // Find index of salesperon
                 int prodIndex = -1;
-                for (int i = 0; i < nwhouse; ++i)
-                {
-                    if (!strncasecmp(salesppl[i].c_str(), salesPn.c_str(), min(salesppl[i].size(), salesPn.size())))
-                    {
+                for (int i = 0; i < nwhouse; ++i) {
+                    if (!strncasecmp(salesppl[i].c_str(), salesPn.c_str(), min(salesppl[i].size(), salesPn.size()))) {
                         prodIndex = i;
                         break;
                     }
                 }
-                if (prodIndex == -1)
-                {
+                if (prodIndex == -1) {
                     cout << "\n\033[1;31mNo salesperson found!\033[0m\n\n";
                     goto SearchChoice;
                 }
@@ -306,8 +298,7 @@ int main()
                 cout << left;
                 // draw first line
                 cout << jnt;
-                for (int k = 0; k < colmuns; ++k)
-                {
+                for (int k = 0; k < colmuns; ++k) {
                     for (int j = 0; j < width; ++j)
                         cout << hln;
                     cout << jnt;
@@ -320,8 +311,7 @@ int main()
                 cout << setw(width) << "Total" << vln << endl;
                 //
                 cout << jnt;
-                for (int k = 0; k < colmuns; ++k)
-                {
+                for (int k = 0; k < colmuns; ++k) {
                     for (int j = 0; j < width; ++j)
                         cout << hln;
                     cout << jnt;
@@ -329,14 +319,12 @@ int main()
                 cout << endl;
                 //
                 int ttot = {0};
-                for (int i = 0; i < drow; ++i)
-                {
+                for (int i = 0; i < drow; ++i) {
                     // row marker
                     cout << vln << setw(width) << i + 1 << vln; // end of row marker
                     // actual data elements
                     int rtot = 0;
-                    for (int j = 0; j < dcol; ++j)
-                    {
+                    for (int j = 0; j < dcol; ++j) {
                         cout << setw(width) << inventory[i][j][prodIndex] << vln;
                         rtot += inventory[i][j][prodIndex];
                     }
@@ -344,8 +332,7 @@ int main()
                     cout << setw(width) << rtot << vln << endl; // end of data elements
                     // line afterwards
                     cout << jnt;
-                    for (int k = 0; k < colmuns; ++k)
-                    {
+                    for (int k = 0; k < colmuns; ++k) {
                         for (int j = 0; j < width; ++j)
                             cout << hln;
                         cout << jnt;
@@ -376,11 +363,9 @@ int main()
         }
         case 5:
             return 0;
-
         default:
             cout << "" << endl;
             cout << "\n\033[1;31mInvalid option. Please choose a valid option!\033[0m\n";
-            break;
         }
     }
 }
