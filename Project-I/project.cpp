@@ -64,8 +64,7 @@ int main()
             {
                 cout << "Day " << day + 1 << endl;
 
-                // somehow getline reads newline character from inputline
-                // the following clears it.
+                // the following clears newline character from inputline.
                 string throwaway;
                 getline(cin, throwaway, '\n');
                 for (int i = 0; i<nwhouse; ++i){
