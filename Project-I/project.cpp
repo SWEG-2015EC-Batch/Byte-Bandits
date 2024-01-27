@@ -6,10 +6,12 @@
  *Byte Bandits, 2024.
  */
 
+#include <cctype>
 #include <iostream>
 #include <cstring>
 #include <algorithm>
 #include <iomanip>
+#include <string>
 
 using namespace std;
 
@@ -52,72 +54,52 @@ int main()
         {
         case 1:
         {
-            int count = 0;
+            if (day >= nday) {
+                cout << "Maximum days reached! Resetting data for a new cycle.\n";
+                day = 0;
+            }
+            cout << "Enter data\n";
             char opt;
             do
             {
-                if (day >= nday)
-                {
-                    cout << "Maximum days reached! Resetting data for a new cycle.\n";
-                    day = 0;
-                }
-                int whouse = 0;
-                string prod;
-                int qty = 0;
-
-                cout << "Enter data\n";
-                cin.clear();
                 cout << "Day " << day + 1 << endl;
-                cout << "Warehouse (1-4): ";
-                cin >> whouse;
-                cin.clear();
 
-                while(whouse < 1 || whouse > 4) {
-                cout << "\n\033[1;31mInvalid warehouse!\033[0m\n" <<  "please enter 1-4: ";
-                cin >> whouse;
-                }
-            goHere:
-                cout << "Product (";
-                for (auto prodct : products)
-                    cout << prodct << "/";
-                cout << "): ";
-                cin >> prod;
-                cin.clear();
-                int prindx = -1;
-                for (int i = 0; i < nprod; ++i)
-                {
-                    if (!strncasecmp(products[i].c_str(), prod.c_str(), min(products[i].size(), prod.size())))
-                    {
-                        prindx = i;
-                        break;
+                // somehow getline reads newline character from inputline
+                // the following clears it.
+                string throwaway;
+                getline(cin, throwaway, '\n'); // not ideal solution
+                for (int i = 0; i<nwhouse; ++i){
+                    string ch;
+                    cout<<"Warehouse "<<i+1<<"? (y/N): ";
+                    cin.clear();
+                    getline(cin, ch, '\n');
+
+                    if (ch.empty() || tolower(ch[0]) != 'y') continue;
+
+                    for (int j = 0; j<nprod; ++j) {
+                        string prodq;
+                        cout << products[j]<<": ";
+                        cin.clear();
+                        getline(cin, prodq, '\n');
+                        if(prodq.empty()) continue;
+                        // TODO
+                        // what about character inputs? like letters?
+
+                        int qty = atoi(prodq.c_str());
+                        while(qty < 0) {
+                            cout << "\n\033[1;31mInvalid quantity!\033[0m\n" <<  "please enter a positive number: ";
+                            cin >> qty;
+                        }
+                        inventory[day][j][i] = qty;
                     }
                 }
-
-                // not found
-                if (prindx == -1)
-                {
-                    cout << "\n\033[1;31mNo product found! Please choose valid product name!\033[0m\n";
-                    goto goHere;
-                }
-
-                cout << "Quantity: ";
-                cin >> qty;
-                cin.clear();
-                while(qty < 0) {
-                    cout << "\n\033[1;31mInvalid quantity!\033[0m\n" <<  "please enter a positive number: ";
-                    cin >> qty;
-                }
-
-                inventory[day][prindx][whouse - 1] = qty;
-                ++count;
-                if (count == maxrep)
-                    break; // done with todays reports
-                cout << "Done with today's report? (Y/N): ";
+                ++day;
+                cout << "\nDone for the day! Continue? (Y/N): ";
                 cin >> opt;
                 cin.clear();
-            } while ((opt != 'y' && opt != 'Y'));
+                if (day == nday) { cout<<"All done!"; break; }// done this months reports
+            } while (tolower(opt) == 'y');
 
-            ++day;
             break;
         }
         case 2:
