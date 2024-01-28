@@ -42,20 +42,24 @@ int main()
     cout<<"\n\n";
     while (true)
     {
-        int option;
         cout << "\nWhat to do?" << endl
              << "1. Input Report" <<" (Day "<<(day%30)+1<<")"<< endl
              << "2. Generate Report" << endl
              << "3. Search" << endl
              << "4. Display Information" << endl
              << "5. Exit" << endl;
+        char option;
         cin >> option;
         switch (option)
         {
-        case 1:
+        case '1':
         {
             if (day >= nday) {
-                cout << "Maximum days reached! Resetting data for a new cycle.\n";
+                cout << "\n\n";
+                cout << "\033[1;31mCAUTION! Maximum days reached! Resetting data for a new cycle!\033[0m\n\n";
+                cout << "\nProceed? (y/N): ";
+                char opt; cin>>opt;
+                if (tolower(opt) != 'y') break;
                 day = 0;
             }
             cout << "Enter Reports. (Hit ENTER to skip any empty fields)\n";
@@ -91,15 +95,14 @@ int main()
                     }
                 }
                 ++day;
-                cout << "\nDone for the day! Continue? (y/n): ";
+                if (day == nday) { cout<<"\nAll done!\n"; break; }// done with this months reports
+                cout << "\nDone for the day! Continue? (y/N): ";
                 cin >> opt;
-                cin.clear();
-                if (day == nday) { cout<<"All done!"; break; }// done with this months reports
             } while (tolower(opt) == 'y');
 
             break;
         }
-        case 2:
+        case '2':
         {
             const int drow = nprod, dcol = nwhouse;
             int report[drow][dcol] = {};
@@ -191,7 +194,7 @@ int main()
             cout << endl;
             break;
         }
-        case 3:
+        case '3':
         {
         SearchChoice:
             cout << "Search by:" << endl;
@@ -340,21 +343,22 @@ int main()
             }
             break;
         }
-       case 4:
+       case '4':
         { // Option to display information
-            cout << "\nCurrent Information:\n";
-            cout << "---------------------\n";
-            cout << "Day: " << day + 1 << "\n";
-            cout << "Products: ";
+            cout <<"\n===============================================\n";
+            cout <<right<<setw(35)<<"Current Information\n";
+            cout <<"===============================================\n";
+            cout <<"Total Days: " << day << "\n";
+            cout <<"Products("<<nprod<<"): ";
             for (const auto &prod : products)
                 cout << prod << " ";
-            cout << "\nSalespersons: ";
+            cout << "\nSalespeople("<<nwhouse<<"): ";
             for (const auto &person : salesppl)
                 cout << person << " ";
-            cout << "\n---------------------\n";
+            cout << "\n===============================================\n";
             break;
         }
-        case 5:
+        case '5':
             return 0;
         default:
             cout << "" << endl;
