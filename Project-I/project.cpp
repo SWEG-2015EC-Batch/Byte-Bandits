@@ -80,20 +80,14 @@ int main()
                         cout << products[j]<<": ";
                         getline(cin, prodq, '\n');
                         if(prodq.empty()) continue;
-                        for (int i = 0; i < prodq.length(); i++){
-                        while (isalpha(prodq[i])) {
-                            cout << "\n\033[1;31mInvalid input! Please enter a number!\033[0m\n" << std::endl; 
-                            cout << products[j]<<": ";
-                            getline(cin, prodq, '\n');
-                            break;
+                        // valideate input
+                        for (int indx = 0; indx<prodq.size(); ++indx) {
+                            if ( ! isdigit(prodq[indx])) {
+                                cout << "\n\033[1;31mInvalid quantity! Please enter a positive number!\033[0m\n\n";
+                                goto ReRead;
+                            }
                         }
-                        }
-                        int qty = atoi(prodq.c_str());
-                        if (qty < 0 ) {
-                            cout << "\n\033[1;31mInvalid quantity! Please enter a positive number!\033[0m\n\n";
-                            goto ReRead;
-                        }
-                        inventory[day][j][i] = qty;
+                        inventory[day][j][i] = atoi(prodq.c_str());
                     }
                 }
                 ++day;
