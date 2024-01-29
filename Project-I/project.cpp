@@ -95,7 +95,10 @@ int main()
                     }
                 }
                 ++day;
-                if (day == nday) { cout<<"\nAll done!\n"; break; }// done with this months reports
+                if (day == nday) { // done with this months reports
+                    cout<<"\nAll done!\n";
+                    break;
+                }
                 cout << "\nDone for the day! Continue? (y/N): ";
                 cin >> opt;
             } while (tolower(opt) == 'y');
@@ -202,11 +205,11 @@ int main()
             cout << "2. Salesperson" << endl;
             cout << "3. Back to Menu" << endl;
 
-            int searchOption;
+            char searchOption;
             cin >> searchOption;
-            if (searchOption == 3) break; // Exit by choice
+            if (searchOption == '3') break; // Exit by choice
             switch (searchOption) {
-                case 1:
+                case '1':
                 {
                     string productName; cout << "Enter product name to search: "; cin.clear(); cin >> productName;
                     int prodIndex = -1;
@@ -221,6 +224,7 @@ int main()
                         cout << "\n\033[1;31mNo product found!\033[0m\n\n";
                         goto SearchChoice;
                     }
+                    cout<<"\n\nProduct: "<<products[prodIndex]<<"\n\n";
 
                     const int drow = nday, dcol = nwhouse;
                     int colmuns = dcol + 2, width = 10;
@@ -270,7 +274,7 @@ int main()
                     }
                 break;
                 }
-            case 2:
+            case '2':
             {
                 string salesPn;
                 cout << "Enter Salesperson name to search: ";
@@ -288,6 +292,7 @@ int main()
                     cout << "\n\033[1;31mNo salesperson found!\033[0m\n\n";
                     goto SearchChoice;
                 }
+                cout<<"\n\nSalesperson: "<<salesppl[prodIndex]<<"\n\n";
 
                 const int drow = nday, dcol = nprod;
                 int colmuns = dcol + 2, width = 10;
@@ -337,6 +342,8 @@ int main()
                 }
                 break;
             }
+            case '3':
+                break;
             default:
                 cout << "\n\033[1;31mInvalid option!\033[0m\n\n";
                 goto SearchChoice;
@@ -350,10 +357,10 @@ int main()
             cout <<"===============================================\n";
             cout <<"Total Days: " << day << "\n";
             cout <<"Products("<<nprod<<"): ";
-            for (const auto &prod : products)
+            for (string prod : products)
                 cout << prod << " ";
             cout << "\nSalespeople("<<nwhouse<<"): ";
-            for (const auto &person : salesppl)
+            for (string person : salesppl)
                 cout << person << " ";
             cout << "\n===============================================\n";
             break;
