@@ -208,16 +208,27 @@ int main()
             char searchOption;
             cin >> searchOption;
             if (searchOption == '3') break; // Exit by choice
+            string throwaway;
+            getline(cin, throwaway, '\n'); // clear inputline
             switch (searchOption) {
                 case '1':
                 {
-                    string productName; cout << "Enter product name to search: "; cin.clear(); cin >> productName;
+                    string productName;
+                StartOver:
+                    cout << "Product Search Keyword: ";
+                    getline(cin, productName, '\n');
+                    //cin >> productName;
+                    if (productName.empty())
+                        goto SearchChoice;
                     int prodIndex = -1;
                     for (int i = 0; i < nprod; ++i) {
                         if (!strncasecmp(products[i].c_str(), productName.c_str(), min(products[i].size(), productName.size())))
                         {
+                            if (prodIndex != -1) { 
+                                cout << "\n\033[1;31mSearch keyword is ambigous! Please refine!\033[0m\n\n";
+                                goto StartOver;
+                            }
                             prodIndex = i;
-                            break;
                         }
                     }
                     if (prodIndex == -1) {
@@ -277,22 +288,30 @@ int main()
             case '2':
             {
                 string salesPn;
-                cout << "Enter Salesperson name to search: ";
-                cin.clear();
-                cin >> salesPn;
+            StartOver2:
+                cout << "Salesperson Search Keyword: ";
+                getline(cin, salesPn, '\n');
+                //cin >> salesPn;
+
+                if (salesPn.empty())
+                    goto SearchChoice;
+
                 // Find index of salesperon
-                int prodIndex = -1;
+                int slspnIndx = -1;
                 for (int i = 0; i < nwhouse; ++i) {
                     if (!strncasecmp(salesppl[i].c_str(), salesPn.c_str(), min(salesppl[i].size(), salesPn.size()))) {
-                        prodIndex = i;
-                        break;
+                        if (slspnIndx != -1) {
+                            cout << "\n\033[1;31mSearch keyword is ambigous! Please refine!\033[0m\n\n";
+                            goto StartOver2;
+                        }
+                        slspnIndx = i;
                     }
                 }
-                if (prodIndex == -1) {
+                if (slspnIndx == -1) {
                     cout << "\n\033[1;31mNo salesperson found!\033[0m\n\n";
                     goto SearchChoice;
                 }
-                cout<<"\n\nSalesperson: "<<salesppl[prodIndex]<<"\n\n";
+                cout<<"\n\nSalesperson: "<<salesppl[slspnIndx]<<"\n\n";
 
                 const int drow = nday, dcol = nprod;
                 int colmuns = dcol + 2, width = 10;
@@ -326,8 +345,8 @@ int main()
                     // actual data elements
                     int rtot = 0;
                     for (int j = 0; j < dcol; ++j) {
-                        cout << setw(width) << inventory[i][j][prodIndex] << vln;
-                        rtot += inventory[i][j][prodIndex];
+                        cout << setw(width) << inventory[i][j][slspnIndx] << vln;
+                        rtot += inventory[i][j][slspnIndx];
                     }
                     ttot += rtot;
                     cout << setw(width) << rtot << vln << endl; // end of data elements
