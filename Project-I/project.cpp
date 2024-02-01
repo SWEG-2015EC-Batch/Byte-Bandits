@@ -76,14 +76,21 @@ int main()
                     cout<<"Warehouse "<<i+1<<"? (y/N): ";
                     getline(cin, ch, '\n');
 
-                    if (ch.empty() || tolower(ch[0]) != 'y') continue;
+                    if (ch.empty() || tolower(ch[0]) != 'y') {
+                        for (int k = 0; k<nprod; ++k)
+                            inventory[day][k][i] = 0;
+                        continue;
+                    }
 
                     for (int j = 0; j<nprod; ++j) {
                         string prodq;
                     ReRead:
                         cout << products[j]<<": ";
                         getline(cin, prodq, '\n');
-                        if(prodq.empty()) continue;
+                        if(prodq.empty()) {
+                            inventory[day][j][i] = 0;
+                            continue;
+                        }
                         // valideate input
                         for (int indx = 0; indx<prodq.size(); ++indx) {
                             if ( ! isdigit(prodq[indx])) {
