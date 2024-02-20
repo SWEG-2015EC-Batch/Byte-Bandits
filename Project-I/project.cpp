@@ -108,8 +108,8 @@ int main()
                 }
                 cout << "\nDone for the day! Continue? (y/N): ";
                 cin >> opt;
+                system("clear");
             } while (tolower(opt) == 'y');
-
             break;
         }
         case '2':
@@ -121,6 +121,7 @@ int main()
                     for (int k = 0; k < nwhouse; ++k)
                         report[j][k] += inventory[i][j][k];
 
+            system("clear");
             cout << setw(20)<<" "<<"========================\n"
                 << setw(20)<<" "<<right << setw(15) << "Report"<<"\n"
                 << setw(20)<<" "<<"========================\n\n";
@@ -214,7 +215,7 @@ int main()
 
             char searchOption;
             cin >> searchOption;
-            if (searchOption == '3') break; // Exit by choice
+            if (searchOption == '3'){ system("clear"); break; };; // Exit by choice
             string throwaway;
             getline(cin, throwaway, '\n'); // clear inputline
             switch (searchOption) {
@@ -242,8 +243,8 @@ int main()
                         cout << "\n\033[1;31mNo product found!\033[0m\n\n";
                         goto SearchChoice;
                     }
+                    system("clear");
                     cout<<"\n\nProduct: "<<products[prodIndex]<<"\n\n";
-
                     const int drow = nday, dcol = nwhouse;
                     int colmuns = dcol + 2, width = 10;
                     cout << left;
@@ -318,8 +319,8 @@ int main()
                     cout << "\n\033[1;31mNo salesperson found!\033[0m\n\n";
                     goto SearchChoice;
                 }
+                system("clear");
                 cout<<"\n\nSalesperson: "<<salesppl[slspnIndx]<<"\n\n";
-
                 const int drow = nday, dcol = nprod;
                 int colmuns = dcol + 2, width = 10;
                 cout << left;
@@ -378,6 +379,7 @@ int main()
         }
        case '4':
         { // Option to display information
+            system("clear");
             cout <<"\n===============================================\n";
             cout <<right<<setw(35)<<"Current Information\n";
             cout <<"===============================================\n";
